@@ -1,13 +1,15 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <header>
-
-  </header>
-
-  <main>
-    <p>Hello world ! :)</p>
-  </main>
+  <div id="app">
+    {{ message }}
+  </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      message: 'Bienvenue sur mon nouveau site au projet bien douteux :)'
+    }
+  }
+}
+</script>
