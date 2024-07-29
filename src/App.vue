@@ -1,15 +1,13 @@
+<script setup lang="ts">
+
+let message = 'douteux...';
+</script>
+
 <template>
-  <div id="app">
-    {{ message }}
-  </div>
+  <h1>Bienvenue sur mon site avec un nouceau projets aux aboutissants</h1>
+  <p> {{ message }} </p>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      message: 'Bienvenue sur mon nouveau site au projet bien douteux :)'
-    }
-  }
-}
-</script>
+<style scoped>
+
+</style>
