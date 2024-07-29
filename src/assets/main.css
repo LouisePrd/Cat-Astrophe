@@ -1,35 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chicle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chicle&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
 html {
-  background-image: url('../../public/background-home.jpg');
+  background-image: url('/background-home.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-h1, p {
-  font-family: 'Chicle', cursive;
-  font-size: 3rem;
-  color: #8e51ff;
-  text-align: center;
-}
-
-h1 {
-  margin-top: 6rem;
-  margin-bottom: -2rem;
-}
-
-
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-p {
-  animation: fadeIn 10s;
+:root {
+  /* Colors */
+  --primary-color: #eb64f5;
+  --secondary-color: #245fe8;
+  /* Fonts */
+  --font-title: 'Chicle', cursive;
+  --font-text: 'Fraunces', sans-serif;
+  /* Sizes */
+  --font-size-very-large: 6em;
+  --font-size-large: 4em;
+  --font-size-medium: 2.5em;
+  --font-size-small: 1.7rem;
+  --font-size-xsmall: 1.3em;
+  --font-size-xxsmall: 0.8em;
 }
