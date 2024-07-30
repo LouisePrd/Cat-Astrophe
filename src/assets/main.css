@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chicle&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@font-face {
+  font-family: 'Zagora-mLEPG';
+  src: url('/fonts/Zagora-mLEPG.woff') format('woff');
+}
 
 html {
-  background-image: url('/background-home.jpg');
+  background-image: url('/background-astro.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -9,10 +12,10 @@ html {
 
 :root {
   /* Colors */
-  --primary-color: #eb64f5;
-  --secondary-color: #245fe8;
+  --primary-color: #e5a768;
+  --secondary-color: #dd94ff;
   /* Fonts */
-  --font-title: 'Chicle', cursive;
+  --font-title: 'Zagora-mLEPG', sans-serif;
   --font-text: 'Fraunces', sans-serif;
   /* Sizes */
   --font-size-very-large: 6em;
