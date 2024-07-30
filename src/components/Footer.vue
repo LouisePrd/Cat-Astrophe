@@ -11,12 +11,13 @@
 
 <style scoped>
     footer {
-        background-color:#e5a768;
+        background-color:#5e4a36;
         color: white;
         text-align: center;
         position: fixed;
         bottom: 0;
         width: 100%;
         font-family: var(--font-text);
+        font-size: var(--font-size-xxsmall);
     }
 </style>

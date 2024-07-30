@@ -5,23 +5,6 @@ let showGreeting = ref(false);
 let showInput = ref(true);
 let showShame = ref(true);
 
-const createDots = (numDots: number) => {
-    const html = document.querySelector('html');
-    if (!app) return;
-    for (let i = 0; i < numDots; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
-        dot.style.top = `${top}%`;
-        dot.style.left = `${left}%`;
-        dot.style.width = `${Math.random() * 6}px`;
-        dot.style.height = dot.style.width;
-        const delay = Math.random() * 2;
-        htlm.appendChild(dot);
-    }
-};
-
 const addName = () => {
     if (name.value.trim()) {
         showGreeting.value = true;
@@ -35,7 +18,7 @@ const addName = () => {
 <template>
     <div class="title">
         <h1>Bienvenue !</h1>
-        <p class="shame" v-if="showShame">Parce qu'on change pas une équipe qui gagne... <br>
+        <p class="shame" v-if="showShame">Encore un projet douteux, parce qu'on change pas une équipe qui gagne... <br>
             L'équipe en question : moi (et je gagne pas beaucoup bref)</p>
     </div>
 
@@ -47,7 +30,8 @@ const addName = () => {
 
     <div v-if="showGreeting" class="greetings-form">
         <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
-        <input class="share" type="text" placeholder="Des choses à partager ?">
+        <input class="share" type="text" placeholder="Des choses à partager">
+        <button class="start" @click="createDots(10)">Partager</button>
     </div>
 
 
@@ -68,6 +52,7 @@ h1 {
     color: var(--primary-color);
     text-align: center;
     font-size: var(--font-size-large);
+    margin-top: 8rem;
 }
 
 @keyframes fadeIn {
@@ -113,12 +98,19 @@ p {
     background-color: transparent;
     border: 2px solid var(--secondary-color);
     border-radius: 15px;
-    padding: 0.4rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     display: block;
     margin: 0 auto;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     cursor: pointer;
+}
+
+.start:hover {
+    background-color: var(--secondary-color);
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
 }
 
 @keyframes blink {
@@ -133,12 +125,5 @@ p {
     100% {
         opacity: 0;
     }
-}
-
-.dot {
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    animation: blink 1s infinite;
 }
 </style>
