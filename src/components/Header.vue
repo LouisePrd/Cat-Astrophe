@@ -5,7 +5,9 @@ import router from '../router/index';
 <template>
     <header>
         <div class="left-section">
-            <img src="/logo.png" alt="logo">
+            <a href="/">
+                <img src="/logo.png" alt="logo">
+            </a>
             <h1>Chat-strologie</h1>
         </div>
         <nav>
@@ -38,7 +40,7 @@ import router from '../router/index';
         width: 100%;
         opacity: 0.95;
         display: flex;
-        justify-content: space-between; /* Distribute space between the left and right sections */
+        justify-content: space-between;
         align-items: center;
         padding: 0 1rem;
         box-sizing: border-box;
@@ -46,13 +48,13 @@ import router from '../router/index';
 
     .left-section {
         display: flex;
-        align-items: center; /* Center items vertically within this section */
+        align-items: center;
     }
 
     img {
         width: 70px;
         height: 70px;
-        margin-right: 10px; /* Adjust the space between the logo and the title */
+        margin-right: 10px;
         margin-top: 5px;
         margin-bottom: 5px;
     }
