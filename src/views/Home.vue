@@ -1,73 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-import { nextTick } from 'vue';
-let name = ref('');
-let showGreeting = ref(false);
-let showInput = ref(true);
-let showShame = ref(true);
-let showAll = ref(true);
-
-const createDots = (numDots: number) => {
-    console.log('createDots');
-    let html = document.querySelector('html');
-    if (html) {
-        for (let i = 0; i < numDots; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            const top = Math.random() * 100;
-            const left = Math.random() * 100;
-            dot.style.top = `${top}%`;
-            dot.style.left = `${left}%`;
-            dot.style.width = `${Math.random() * 6}px`;
-            dot.style.height = dot.style.width;
-            dot.style.backgroundColor = 'white';
-            dot.style.position = 'absolute';
-            dot.style.borderRadius = '50%';
-            html.appendChild(dot);
-        }
-    }
-};
-
-const progressiveDisplay = async (message: string) => {
-    await nextTick();
-    
-    let writing = document.querySelector('.writing');
-    if (writing) {
-        let i = 0;
-        let interval = setInterval(() => {
-            if (i < message.length) {
-                writing.innerHTML += message.charAt(i);
-                i++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 500);
-    } else {
-        console.error('Element with class "writing" not found.');
-    }
-};
-
-const addName = () => {
-    if (name.value.trim()) {
-        showGreeting.value = true;
-        showInput.value = false;
-        showShame.value = false;
-    }
-    const audio = new Audio('/sounds/Space-Ambient-Music.mp3');
-    audio.play();
-}
-
-const displayMessage = () => {
-    createDots(100);
-    showGreeting.value = false;
-    showAll.value = false;
-    let input = document.querySelector('.share');
-    progressiveDisplay(input.value);
-
-}
-
-</script>
-
 <template>
     <div class="title" v-if="showAll">
         <h1>Bienvenue !</h1>
@@ -85,14 +15,122 @@ const displayMessage = () => {
         <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
         <input class="share" type="text" placeholder="Des choses à partager">
         <button class="start" @click="displayMessage">Envoyer</button>
+        <p class="comeOn"></p>
     </div>
 
     <div class="message" v-if="!showAll">
         <h1 class="writing"></h1>
+        <p class="judge"></p>
     </div>
 
 
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { nextTick } from 'vue';
+let name = ref('');
+let showGreeting = ref(false);
+let showInput = ref(true);
+let showShame = ref(true);
+let showAll = ref(true);
+
+const addName = () => {
+    if (name.value.trim()) {
+        showGreeting.value = true;
+        showInput.value = false;
+        showShame.value = false;
+    }
+    const audio = new Audio('/sounds/Space-Ambient-Music.mp3');
+    audio.play();
+}
+
+const createDots = (numDots: number) => {
+    let html = document.querySelector('html');
+    if (html) {
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            const top = Math.random() * 100;
+            const left = Math.random() * 100;
+            const size = Math.random() * 6;
+            dot.style.cssText = `
+                top: ${top}%;
+                left: ${left}%;
+                width: ${size}px;
+                height: ${size}px;
+                background-color: white;
+                position: absolute;
+                border-radius: 50%;
+            `;
+
+            html.appendChild(dot);
+        }
+    }
+};
+
+const progressiveDisplay = async (message: string) => {
+    await nextTick();
+    let writing = document.querySelector('.writing');
+    if (writing) {
+        let i = 0;
+        let interval = setInterval(() => {
+            if (i < message.length) {
+                writing.innerHTML += message.charAt(i);
+                i++;
+            } else {
+                clearInterval(interval);
+                judgingMessage();
+            }
+        }, 500);
+    } else {
+        console.error('Element with class "writing" not found.');
+    }
+
+};
+
+
+const displayMessage = () => {
+    let inputUser = document.querySelector('.share');
+    if (inputUser instanceof HTMLInputElement && inputUser.value) {
+        createDots(100);
+        showGreeting.value = false;
+        showAll.value = false;
+        progressiveDisplay(inputUser.value);
+        judgingMessage();
+    } else {
+        const comeOn = document.querySelector('.comeOn');
+        if (comeOn instanceof HTMLElement) {
+            comeOn.innerHTML = 'Allez, un petit effort...';
+        } else {
+            console.error('Element with class "comeOn" is not an instance of HTMLElement or is null.');
+        }
+    }
+}
+
+
+const judgingMessage = () => {
+    const messageJudge = document.querySelector('.judge');
+    if (messageJudge instanceof HTMLElement) {
+        messageJudge.innerHTML = 'Impressionnant, poétique, romanesque, un chouilla prétentieux...';
+        messageJudge.style.opacity = '1';
+
+        setTimeout(() => {
+            messageJudge.innerHTML += '<br>Mais pas mal.';
+            messageJudge.style.opacity = '1';
+        }, 3000);
+        setTimeout(() => {
+            messageJudge.innerHTML += '<br>Vraiment pas mal.';
+            messageJudge.style.opacity = '1';
+        }, 5000);
+    }
+
+    // on ouvre la page 
+}
+
+
+</script>
 
 <style scoped>
 html {
@@ -102,7 +140,6 @@ html {
     align-items: center;
     height: 100vh;
 }
-
 
 h1 {
     font-family: var(--font-title);
@@ -170,17 +207,33 @@ p {
     transition: 0.3s;
 }
 
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
+.writing {
+    font-family: var(--font-title);
+    font-size: var(--font-size-large);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-top: 12rem;
+}
 
-    50% {
-        opacity: 1;
-    }
+.judge {
+    font-family: var(--font-text);
+    font-size: var(--font-size-xsmall);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 0;
+    transition: opacity 5s ease-in-out;
+}
 
-    100% {
-        opacity: 0;
-    }
+.dot {
+    animation: fadeIn 10s;
+}
+
+.comeOn {
+    font-family: var(--font-text);
+    font-size: var(--font-size-xsmall);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-top: 1rem;
 }
 </style>
