@@ -3,6 +3,11 @@
   src: url('/fonts/Zagora-mLEPG.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'VigranMaroll';
+  src: url('/fonts/VigranMaroll.otf') format('opentype');
+}
+
 html {
   background-image: url('/background-astro.jpg');
   background-size: cover;
@@ -13,15 +18,15 @@ html {
 :root {
   /* Colors */
   --primary-color: #e5a768;
-  --secondary-color: #dd94ff;
+  --secondary-color: #E2C799;
   /* Fonts */
-  --font-title: 'Zagora-mLEPG', sans-serif;
-  --font-text: 'Fraunces', sans-serif;
+  --font-title: 'VigranMaroll', sans-serif;
+  --font-text: 'Zagora-mLEPG', sans-serif;
   /* Sizes */
   --font-size-very-large: 6em;
   --font-size-large: 4em;
   --font-size-medium: 2.5em;
-  --font-size-small: 1.7rem;
+  --font-size-small: 1.5rem;
   --font-size-xsmall: 1.3em;
   --font-size-xxsmall: 0.8em;
 }
