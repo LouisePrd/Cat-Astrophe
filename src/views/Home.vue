@@ -1,9 +1,51 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { nextTick } from 'vue';
 let name = ref('');
 let showGreeting = ref(false);
 let showInput = ref(true);
 let showShame = ref(true);
+let showAll = ref(true);
+
+const createDots = (numDots: number) => {
+    console.log('createDots');
+    let html = document.querySelector('html');
+    if (html) {
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            const top = Math.random() * 100;
+            const left = Math.random() * 100;
+            dot.style.top = `${top}%`;
+            dot.style.left = `${left}%`;
+            dot.style.width = `${Math.random() * 6}px`;
+            dot.style.height = dot.style.width;
+            dot.style.backgroundColor = 'white';
+            dot.style.position = 'absolute';
+            dot.style.borderRadius = '50%';
+            html.appendChild(dot);
+        }
+    }
+};
+
+const progressiveDisplay = async (message: string) => {
+    await nextTick();
+    
+    let writing = document.querySelector('.writing');
+    if (writing) {
+        let i = 0;
+        let interval = setInterval(() => {
+            if (i < message.length) {
+                writing.innerHTML += message.charAt(i);
+                i++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 500);
+    } else {
+        console.error('Element with class "writing" not found.');
+    }
+};
 
 const addName = () => {
     if (name.value.trim()) {
@@ -11,12 +53,23 @@ const addName = () => {
         showInput.value = false;
         showShame.value = false;
     }
+    const audio = new Audio('/sounds/Space-Ambient-Music.mp3');
+    audio.play();
+}
+
+const displayMessage = () => {
+    createDots(100);
+    showGreeting.value = false;
+    showAll.value = false;
+    let input = document.querySelector('.share');
+    progressiveDisplay(input.value);
+
 }
 
 </script>
 
 <template>
-    <div class="title">
+    <div class="title" v-if="showAll">
         <h1>Bienvenue !</h1>
         <p class="shame" v-if="showShame">Encore un projet douteux, parce qu'on change pas une équipe qui gagne... <br>
             L'équipe en question : moi (et je gagne pas beaucoup bref)</p>
@@ -31,7 +84,11 @@ const addName = () => {
     <div v-if="showGreeting" class="greetings-form">
         <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
         <input class="share" type="text" placeholder="Des choses à partager">
-        <button class="start" @click="createDots(10)">Partager</button>
+        <button class="start" @click="displayMessage">Envoyer</button>
+    </div>
+
+    <div class="message" v-if="!showAll">
+        <h1 class="writing"></h1>
     </div>
 
 

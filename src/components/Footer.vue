@@ -19,5 +19,6 @@
         width: 100%;
         font-family: var(--font-text);
         font-size: var(--font-size-xxsmall);
+        opacity: 0.9;
     }
 </style>

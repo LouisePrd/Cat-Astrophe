@@ -30,16 +30,18 @@ import router from '../router/index';
         font-size: 1rem;
         top: 0;
         width: 100%;
+        opacity: 0.9;
     }
 
     nav {
         display: flex;
-        justify-content: left;
+        justify-content: right;
+        padding-right: 3rem;
     }
 
     ul {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     li {
