@@ -3,19 +3,39 @@ import { ref } from 'vue';
 let name = ref('');
 let showGreeting = ref(false);
 let showInput = ref(true);
+let showShame = ref(true);
+
+const createDots = (numDots: number) => {
+    const html = document.querySelector('html');
+    if (!app) return;
+    for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        dot.style.top = `${top}%`;
+        dot.style.left = `${left}%`;
+        dot.style.width = `${Math.random() * 6}px`;
+        dot.style.height = dot.style.width;
+        const delay = Math.random() * 2;
+        htlm.appendChild(dot);
+    }
+};
 
 const addName = () => {
     if (name.value.trim()) {
         showGreeting.value = true;
         showInput.value = false;
+        showShame.value = false;
     }
 }
+
 </script>
 
 <template>
     <div class="title">
         <h1>Bienvenue !</h1>
-        <p class="shame">Parce qu'on change pas une équipe qui gagne... <br>
+        <p class="shame" v-if="showShame">Parce qu'on change pas une équipe qui gagne... <br>
             L'équipe en question : moi (et je gagne pas beaucoup bref)</p>
     </div>
 
@@ -26,19 +46,8 @@ const addName = () => {
     </div>
 
     <div v-if="showGreeting" class="greetings-form">
-        <h2>Salut {{ name }} !</h2>
-        <legend>Content de te voir ici, tu vas bien ?</legend>
-        <div>
-            <input type="radio" id="mood-oui" name="mood" value="oui" />
-            <label for="mood-oui">Oui</label>
-        </div>
-        <div>
-            <input type="radio" id="mood-oui-rose" name="mood" value="oui-rose" />
-            <label id="mood-oui-rose" for="mood-oui-rose">Oui en rose</label>
-        </div>
-        <p>Clique sur l'image pour commencer (stp)</p>
-        <img class="charming-guy" src="/charming-guy.jpg" alt="Un charmant jeune homme" />
-
+        <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
+        <input class="share" type="text" placeholder="Des choses à partager ?">
     </div>
 
 
@@ -61,13 +70,6 @@ h1 {
     font-size: var(--font-size-large);
 }
 
-h2 {
-    font-family: var(--font-title);
-    color: var(--primary-color);
-    text-align: center;
-    font-size: var(--font-size-small);
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -85,7 +87,8 @@ p {
     font-size: var(--font-size-small);
 }
 
-.name {
+.name,
+.share {
     font-family: var(--font-text);
     font-size: var(--font-size-xsmall);
     color: var(--secondary-color);
@@ -118,19 +121,24 @@ p {
     cursor: pointer;
 }
 
-.greetings-form {
-    font-family: var(--font-text);
-    font-size: var(--font-size-xsmall);
-    color: var(--secondary-color);
-    padding: 0.4rem;
-    text-align: center;
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
-#mood-oui-rose {
-    color: rgb(234, 0, 247);
-}
-
-.charming-guy {
-    max-width: 10%;
+.dot {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 1s infinite;
 }
 </style>
