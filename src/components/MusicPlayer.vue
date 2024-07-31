@@ -6,33 +6,52 @@ const audioPlayer = ref<HTMLAudioElement | null>(null);
 const isPlaying = ref(false);
 
 const playAudio = () => {
-  if (audioPlayer.value) {
-    audioPlayer.value.play()
-      .then(() => {
-        isPlaying.value = true;
-      })
-      .catch(error => {
-        console.error("Error playing audio:", error);
-      });
-  }
+    alert('playAudio');
+    if (audioPlayer.value) {
+        audioPlayer.value.play()
+            .then(() => {
+                isPlaying.value = true;
+                console.log("Audio is playing");
+            })
+            .catch(error => {
+                console.error("Error playing audio:", error);
+            });
+    }
 };
 
 const pauseAudio = () => {
-  if (audioPlayer.value) {
-    audioPlayer.value.pause();
-    isPlaying.value = false;
-  }
+    alert('pauseAudio');
+    if (audioPlayer.value) {
+        audioPlayer.value.pause();
+        isPlaying.value = false;
+        console.log("Audio is paused");
+    }
 };
 
+onMounted(() => {
+    audioPlayer.value = new Audio(audioSource);
+});
+
 onBeforeUnmount(() => {
-  pauseAudio();
+    if (audioPlayer.value) {
+        audioPlayer.value.pause();
+        audioPlayer.value = null;
+    }
 });
 </script>
 
 <template>
-  <div>
-    <audio ref="audioPlayer" :src="audioSource" loop></audio>
-    <button @click="playAudio" v-if="!isPlaying">Play</button>
-    <button @click="pauseAudio" v-if="isPlaying">Pause</button>
-  </div>
+    <div>
+        <img src="/props/play.png" alt="Play/Pause" @click="isPlaying ? pauseAudio() : playAudio()">
+    </div>
 </template>
+
+<style scoped>
+img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-top: 5px;
+}
+</style>

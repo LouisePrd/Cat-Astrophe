@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import router from '../router/index';
+import MusicPlayer from '@/components/MusicPlayer.vue';
 </script>
 
 <template>
     <header>
         <div class="left-section">
             <a href="/">
-                <img src="/logo.png" alt="logo">
+                <img src="/props/logo.png" alt="logo">
             </a>
             <h1>Chat-strologie</h1>
+            <MusicPlayer />
         </div>
         <nav>
             <ul>
@@ -24,9 +26,6 @@ import router from '../router/index';
             </ul>
         </nav>
     </header>
-    <audio autoplay loop>
-        <source src="/sounds/Space-Ambient-Music.mp3" type="audio/mpeg">
-    </audio>
 </template>
 
 <style scoped>
