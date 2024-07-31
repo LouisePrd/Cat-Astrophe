@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import router from '../router/index';
 import MusicPlayer from '@/components/MusicPlayer.vue';
+
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (header) {
+        header.style.opacity = (1 - window.scrollY / 1000).toString();
+    }
+});
 </script>
 
 <template>
@@ -23,6 +30,10 @@ import MusicPlayer from '@/components/MusicPlayer.vue';
                 <li>
                     <router-link to="/about">About</router-link>
                 </li>
+                <div class="profile">
+                    <img id="img-profile" src="/props/profile-icon.png" alt="profile">
+                    <router-link to="/profile">{{ nameUser }}</router-link>
+                </div>
             </ul>
         </nav>
     </header>
@@ -63,7 +74,7 @@ import MusicPlayer from '@/components/MusicPlayer.vue';
         font-size: 1.8rem;
     }
 
-    nav {
+    nav, li {
         display: flex;
         align-items: center;
     }
@@ -83,5 +94,16 @@ import MusicPlayer from '@/components/MusicPlayer.vue';
     a {
         text-decoration: none;
         color: white;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    #img-profile {
+        width: 30px;
+        height: 30px;
     }
 </style>

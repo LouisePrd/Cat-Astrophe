@@ -114,24 +114,19 @@ const judgingMessage = () => {
         messageJudge.innerHTML = 'Impressionnant, poétique, romanesque, un chouilla prétentieux...';
         messageJudge.style.opacity = '1';
 
-        setTimeout(() => {
-            messageJudge.innerHTML += '<br>Mais pas mal.';
-            messageJudge.style.opacity = '1';
-        }, 3000);
-        setTimeout(() => {
-            messageJudge.innerHTML += '<br>Vraiment pas mal.';
-            messageJudge.style.opacity = '1';
-        }, 5000);
-        setTimeout(() => {
-            messageJudge.innerHTML += '<br><br>Passons aux choses sérieurses.';
-        }, 5000);
+        const messages = [
+            '<br>Mais pas mal.',
+            '<br>Vraiment pas mal.',
+            '<br><br>Passons aux choses sérieuses.<br>Clique sur la page <a href="/astro" style="color: inherit;" >Astro</a>.'
+        ];
+
+        messages.forEach((msg, index) => {
+            setTimeout(() => {
+                messageJudge.innerHTML += msg;
+            }, (index + 1) * 2000 + 1000);
+        });
     }
-
-
-    setTimeout(() => {
-        window.location.href = '/astro';
-    }, 10000);
-}
+};
 
 
 </script>

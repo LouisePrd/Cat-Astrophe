@@ -2,12 +2,14 @@
 import { ref } from 'vue';
 
 const answer = ref('');
-
+let signTab = ['Bélier', 'Taureau', 'Gémeaux', 'Cancer', 'Lion', 'Vierge', 'Balance', 'Scorpion', 'Sagittaire', 'Capricorne', 'Verseau', 'Poissons'];
+let selected = ref('');
+let astroFormDisplay = ref(false);
 
 const requestForm = () => {
+    astroFormDisplay.value = true;
     let form = document.querySelector('form') as HTMLElement | null;
     let astroForm = document.querySelector('.astro-form') as HTMLElement | null;
-
     if (form != null && astroForm != null) {
         form.style.display = 'none';
         astroForm.style.display = 'block';
@@ -27,9 +29,13 @@ const requestForm = () => {
             <input type="submit" value="Submit">
         </form>
 
-        <div class="astro-form">
-            <p>Quel est votre signe astrologique ?</p>
-            <input type="text" placeholder="Votre signe astrologique">
+        <div class="astro-form" v-if="astroFormDisplay">
+            <p>Quel est votre signe astrologique ?<br>(oui, meme si t'as dit non)</p>
+            <select v-model="selected">
+                <option value="">Pas de timidité stp</option>
+                <option v-for="sign in signTab" :key="sign" :value="sign">{{ sign }}</option>
+            </select>
+            <span v-if="selected">Sélectionné : {{ selected }}</span>
             <input type="submit" value="Submit">
         </div>
     </div>
@@ -88,6 +94,18 @@ input[type="submit"]:hover {
 
 .astro-form {
     margin-top: 2rem;
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: var(--font-size-small);
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+}
+
+.astro-form input[type="submit"] {
+    font-size: var(--font-size-xxsmall);
 }
 </style>

@@ -6,12 +6,10 @@ const audioPlayer = ref<HTMLAudioElement | null>(null);
 const isPlaying = ref(false);
 
 const playAudio = () => {
-    alert('playAudio');
     if (audioPlayer.value) {
         audioPlayer.value.play()
             .then(() => {
                 isPlaying.value = true;
-                console.log("Audio is playing");
             })
             .catch(error => {
                 console.error("Error playing audio:", error);
@@ -20,11 +18,9 @@ const playAudio = () => {
 };
 
 const pauseAudio = () => {
-    alert('pauseAudio');
     if (audioPlayer.value) {
         audioPlayer.value.pause();
         isPlaying.value = false;
-        console.log("Audio is paused");
     }
 };
 
@@ -48,7 +44,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 img {
-    width: 50px;
+    width: 40px;
     height: auto;
     cursor: pointer;
     margin-left: 1rem;
