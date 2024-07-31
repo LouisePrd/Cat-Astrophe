@@ -41,8 +41,6 @@ const addName = () => {
         showInput.value = false;
         showShame.value = false;
     }
-    const audio = new Audio('/sounds/Space-Ambient-Music.mp3');
-    audio.play();
 }
 
 const createDots = (numDots: number) => {
@@ -124,9 +122,15 @@ const judgingMessage = () => {
             messageJudge.innerHTML += '<br>Vraiment pas mal.';
             messageJudge.style.opacity = '1';
         }, 5000);
+        setTimeout(() => {
+            messageJudge.innerHTML += '<br><br>Passons aux choses sérieurses.';
+        }, 5000);
     }
 
-    // on ouvre la page 
+
+    setTimeout(() => {
+        window.location.href = '/astro';
+    }, 10000);
 }
 
 

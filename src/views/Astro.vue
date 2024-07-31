@@ -5,11 +5,15 @@ const answer = ref('');
 
 
 const requestForm = () => {
-    let form = document.querySelector('form');
-    form.style.display = 'none';
-    let astroForm = document.querySelector('.astro-form');
-    astroForm.style.display = 'block';
+    let form = document.querySelector('form') as HTMLElement | null;
+    let astroForm = document.querySelector('.astro-form') as HTMLElement | null;
+
+    if (form != null && astroForm != null) {
+        form.style.display = 'none';
+        astroForm.style.display = 'block';
+    }
 };
+
 </script>
 
 <template>
