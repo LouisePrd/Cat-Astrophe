@@ -1,12 +1,8 @@
 <script setup lang="ts">
-
+document.title = 'A propos';
 </script>
 
 <template>
-    <head>
-        <title>A propos</title>
-    </head>
-
 </template>
 
 <style scoped>

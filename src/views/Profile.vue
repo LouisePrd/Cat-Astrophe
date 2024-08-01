@@ -1,12 +1,9 @@
 <script setup lang="ts">
+document.title = 'Profil';
 
 </script>
 
 <template>
-    <head>
-        <title>Profil</title>
-    </head>
-
 </template>
 
 <style scoped>

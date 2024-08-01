@@ -5,6 +5,7 @@ const answer = ref('');
 let signTab = ['Bélier', 'Taureau', 'Gémeaux', 'Cancer', 'Lion', 'Vierge', 'Balance', 'Scorpion', 'Sagittaire', 'Capricorne', 'Verseau', 'Poissons'];
 let selected = ref('');
 let astroFormDisplay = ref(false);
+document.title = 'Astro';
 
 const requestForm = () => {
     astroFormDisplay.value = true;
@@ -19,9 +20,6 @@ const requestForm = () => {
 </script>
 
 <template>
-    <head>
-        <title>Astro</title>
-    </head>
     <div class="astro">
         <h1>Vous avez dit <br>astrologie ?</h1>
         <form action="" @submit.prevent="requestForm">
