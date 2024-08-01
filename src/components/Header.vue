@@ -1,20 +1,24 @@
 <script setup lang="ts">
 import router from '../router/index';
 import MusicPlayer from '@/components/MusicPlayer.vue';
-import { ref } from 'vue';
+import { ref , onMounted} from 'vue';
 
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (header) {
-        header.style.opacity = (1 - window.scrollY / 1000).toString();
-    }
-});
+const nameUser = ref<string | null>(sessionStorage.getItem('name'));
 
-const getNameUser = () => {
-    return sessionStorage.getItem('name');
+const disconnect = () => {
+    sessionStorage.removeItem('name');
+    nameUser.value = '';
+    router.push('/');
 }
 
-let nameUser = ref(getNameUser());
+window.addEventListener('storage', () => {
+    nameUser.value = sessionStorage.getItem('name');
+});
+
+onMounted(() => {
+    nameUser.value = sessionStorage.getItem('name');
+    console.log(nameUser.value);
+});
 
 </script>
 
@@ -38,9 +42,18 @@ let nameUser = ref(getNameUser());
                 <li>
                     <router-link to="/about">A propos</router-link>
                 </li>
-                <div class="profile" v-if="nameUser">
+                <div class="connected" v-if="!nameUser">
+                    <li>
+                        <router-link to="/login">Connexion</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/register">Inscription</router-link>
+                    </li>
+                </div>
+                <div class="profile" v-if="nameUser?.valueOf">
                     <img id="img-profile" src="/props/profile-icon.png" alt="profile">
-                    <router-link to="/profile">{{ nameUser }}</router-link>
+                    <router-link to="/profile">{{ nameUser.valueOf }}</router-link>
+                    <li @click="disconnect">Déconnexion</li>
                 </div>
             </ul>
         </nav>
@@ -97,6 +110,7 @@ let nameUser = ref(getNameUser());
 
     li {
         list-style: none;
+        cursor: pointer;
     }
 
     a {
