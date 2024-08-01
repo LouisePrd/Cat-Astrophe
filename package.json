@@ -13,12 +13,14 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
     "@vue/runtime-dom": "^3.4.34",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "vue": "^3.4.29",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.14.13",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/tsconfig": "^0.5.1",
