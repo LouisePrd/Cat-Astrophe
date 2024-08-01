@@ -19,6 +19,9 @@ const requestForm = () => {
 </script>
 
 <template>
+    <head>
+        <title>Astro</title>
+    </head>
     <div class="astro">
         <h1>Vous avez dit <br>astrologie ?</h1>
         <form action="" @submit.prevent="requestForm">

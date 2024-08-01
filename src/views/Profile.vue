@@ -3,6 +3,9 @@
 </script>
 
 <template>
+    <head>
+        <title>Profil</title>
+    </head>
 
 </template>
 

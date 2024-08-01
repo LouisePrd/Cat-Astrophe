@@ -3,6 +3,9 @@
 </script>
 
 <template>
+    <head>
+        <title>A propos</title>
+    </head>
 
 </template>
 
