@@ -17,7 +17,6 @@ window.addEventListener('storage', () => {
 
 onMounted(() => {
     nameUser.value = sessionStorage.getItem('name');
-    console.log(nameUser.value);
 });
 
 </script>

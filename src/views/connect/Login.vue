@@ -1,39 +1,70 @@
 <script setup lang="ts">
 import { supabase } from '@/lib/supabaseClient';
+import router from '@/router';
 import bcrypt from 'bcryptjs';
 document.title = 'Connexion';
 
 let errorRegister = '';
 
-const saltRounds = 10;
+const login = async (event: Event) => {
 
-const checkDB = async (username: string, password: string) => {
-    try {
-        let { data: users, error }: { data: any, error: any } = await supabase
-            .from('users')
-            .select('username, password')
-            .eq('username', username);
-
-        const user = users[0];
-        const isMatch = bcrypt.compareSync(password, user.password);
-
-        if (isMatch) {
-            console.log('Mot de passe correct');
-            return true;
-        } else {
-            console.log('Mot de passe incorrect');
-            return false;
-        }
-    } catch (error) {
-        console.error('Problème pendant le fetch :', (error as any).message);
-        return false;
-    }
 };
 </script>
 
 <template>
+    <h1>Connexion</h1>
+    <form @submit="login">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="username" id="username" name="username" required>
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Se Connecter</button>
+    </form>
+    <p class="error" v-if="errorRegister">{{ errorRegister }}</p>
+    <p class="connect">Vous n'avez pas encore de compte ? <router-link to="/register">Inscrivez-vous</router-link></p>
 
 </template>
 
 <style scoped>
+h1 {
+    color: var(--primary-color);
+    font-size: var(--font-size-large);
+    font-family: var(--font-title);
+    text-align: center;
+    margin-top: 8rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-family: var(--font-text);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.connect {
+    margin-top: 3rem;
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--font-size-small);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.error {
+    color: rgb(255, 255, 255);
+    font-family: var(--font-text);
+    font-size: var(--font-size-xsmall);
+    text-align: center;
+}
 </style>
