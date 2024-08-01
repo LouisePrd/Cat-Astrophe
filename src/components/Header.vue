@@ -50,9 +50,9 @@ onMounted(() => {
                         <router-link to="/register">Inscription</router-link>
                     </li>
                 </div>
-                <div class="profile" v-if="nameUser?.valueOf">
+                <div class="profile" v-if="nameUser">
                     <img id="img-profile" src="/props/profile-icon.png" alt="profile">
-                    <router-link to="/profile">{{ nameUser.valueOf }}</router-link>
+                    <router-link to="/profile">{{ nameUser }}</router-link>
                     <li @click="disconnect">Déconnexion</li>
                 </div>
             </ul>
@@ -121,7 +121,7 @@ onMounted(() => {
     .profile {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     #img-profile {

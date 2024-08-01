@@ -12,6 +12,9 @@ const saltRounds = 10;
 const connect = () =>  {
     if (sessionStorage.getItem('name')) {
         router.push('/');
+        setTimeout(() => {
+            location.reload();
+        }, 100);
     }
 };
 
