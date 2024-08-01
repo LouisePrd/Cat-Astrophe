@@ -6,7 +6,6 @@ let showGreeting = ref(false);
 let showInput = ref(true);
 let showShame = ref(true);
 let showAll = ref(true);
-let firstEntry = ref(true);
 
 const addName = () => {
     if (name.value.trim()) {
@@ -108,33 +107,32 @@ const judgingMessage = () => {
     <head>
         <title>A propos</title>
     </head>
-    <div class="first-entry" v-if="firstEntry">
-        <div class="title" v-if="showAll">
-            <h1>Bienvenue !</h1>
-            <p class="shame" v-if="showShame">Encore un projet douteux, parce qu'on change pas une équipe qui gagne...
-                <br>
-                L'équipe en question : moi (et je gagne pas beaucoup bref)
-            </p>
-        </div>
-
-        <div v-if="showInput">
-            <p>C'est quoi ton petit nom ?</p>
-            <input class="name" type="text" v-model="name" placeholder="J'écoute">
-            <button class="start" @click="addName">Valider</button>
-        </div>
-
-        <div v-if="showGreeting">
-            <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
-            <input class="share" type="text" placeholder="Des choses à partager">
-            <button class="start" @click="displayMessage">Envoyer</button>
-            <p class="comeOn"></p>
-        </div>
-
-        <div class="message" v-if="!showAll">
-            <h1 class="writing"></h1>
-            <p class="judge"></p>
-        </div>
+    <div class="title" v-if="showAll">
+        <h1>Bienvenue !</h1>
+        <p class="shame" v-if="showShame">Encore un projet douteux, parce qu'on change pas une équipe qui gagne...
+            <br>
+            L'équipe en question : moi (et je gagne pas beaucoup bref)
+        </p>
     </div>
+
+    <div v-if="showInput">
+        <p>C'est quoi ton petit nom ?</p>
+        <input class="name" type="text" v-model="name" placeholder="J'écoute">
+        <button class="start" @click="addName">Valider</button>
+    </div>
+
+    <div v-if="showGreeting">
+        <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
+        <input class="share" type="text" placeholder="Des choses à partager">
+        <button class="start" @click="displayMessage">Envoyer</button>
+        <p class="comeOn"></p>
+    </div>
+
+    <div class="message" v-if="!showAll">
+        <h1 class="writing"></h1>
+        <p class="judge"></p>
+    </div>
+
 
 </template>
 
@@ -242,5 +240,4 @@ p {
     text-align: center;
     margin-top: 1rem;
 }
-
 </style>

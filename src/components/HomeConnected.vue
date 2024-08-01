@@ -7,16 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-let name = ref('');
-
-
-window.onload = () => {
-    if (sessionStorage.getItem('name')) {
-        name.value = sessionStorage.getItem('name') as string;
-    }
-}
-
 </script>
 
 <style scoped>
