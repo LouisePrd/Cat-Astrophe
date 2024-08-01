@@ -2,12 +2,12 @@
 import { onMounted, ref } from 'vue';
 import HomeConnected from '@/components/HomeConnected.vue';
 import HomeNotConnected from '@/components/HomeNotConnected.vue';
-document.title = 'Accueil';
 
 const connected = ref(false);
 
 onMounted(() => {
-    if (localStorage.getItem('name')) {
+    document.title = 'Accueil';
+    if (sessionStorage.getItem('name')) {
         connected.value = true;
     } else {
         connected.value = false;
@@ -22,6 +22,4 @@ onMounted(() => {
 
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -41,5 +41,6 @@ p {
     color: var(--secondary-color);
     text-align: center;
     font-size: var(--font-size-small);
+    animation: fadeIn 5s;
 }
 </style>

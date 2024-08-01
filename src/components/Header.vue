@@ -38,9 +38,9 @@ let nameUser = ref(getNameUser());
                 <li>
                     <router-link to="/about">A propos</router-link>
                 </li>
-                <div class="profile">
+                <div class="profile" v-if="nameUser">
                     <img id="img-profile" src="/props/profile-icon.png" alt="profile">
-                    <router-link to="/profile" v-if="nameUser">{{ nameUser }}</router-link>
+                    <router-link to="/profile">{{ nameUser }}</router-link>
                 </div>
             </ul>
         </nav>
