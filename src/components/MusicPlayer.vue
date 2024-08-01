@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
 
 <template>
     <div>
-        <img src="/props/play.png" alt="Play/Pause" @click="isPlaying ? pauseAudio() : playAudio()">
+        <img id="ambient-sound" src="/props/play.png" alt="Play/Pause" @click="isPlaying ? pauseAudio() : playAudio()">
     </div>
 </template>
 

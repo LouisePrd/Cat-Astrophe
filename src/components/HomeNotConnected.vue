@@ -13,6 +13,10 @@ const addName = () => {
         showInput.value = false;
         showShame.value = false;
         sessionStorage.setItem('name', name.value);
+        let audio = document.getElementById('ambient-sound') as HTMLImageElement;
+        if (audio) {
+            audio.click();
+        }
     }
 }
 
