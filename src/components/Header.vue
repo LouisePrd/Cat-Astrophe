@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import router from '../router/index';
 import MusicPlayer from '@/components/MusicPlayer.vue';
+import { ref } from 'vue';
 
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
@@ -8,6 +9,13 @@ window.addEventListener('scroll', () => {
         header.style.opacity = (1 - window.scrollY / 1000).toString();
     }
 });
+
+const getNameUser = () => {
+    return sessionStorage.getItem('name');
+}
+
+let nameUser = ref(getNameUser());
+
 </script>
 
 <template>
@@ -22,17 +30,17 @@ window.addEventListener('scroll', () => {
         <nav>
             <ul>
                 <li>
-                    <router-link to="/">Home</router-link>
+                    <router-link to="/">Accueil</router-link>
                 </li>
                 <li>
                     <router-link to="/astro">Astro</router-link>
                 </li>
                 <li>
-                    <router-link to="/about">About</router-link>
+                    <router-link to="/about">A propos</router-link>
                 </li>
                 <div class="profile">
                     <img id="img-profile" src="/props/profile-icon.png" alt="profile">
-                    <router-link to="/profile">{{ nameUser }}</router-link>
+                    <router-link to="/profile" v-if="nameUser">{{ nameUser }}</router-link>
                 </div>
             </ul>
         </nav>
