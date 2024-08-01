@@ -6,10 +6,19 @@ import { supabase } from '@/lib/supabaseClient';
 
 const connected = ref(false);
 
-async function test() {
-    const { data } = await supabase.from('User').select() 
-    console.log(data);
-}
+
+const test = async () => {
+    try {
+        let { data: users, error }: { data: any, error: any } = await supabase
+            .from('users')
+            .select('*');
+        if (error) throw error;
+        console.log(users);
+    } catch (error) {
+        console.error('Probleme pendant le fetch :', (error as any).message);
+    }
+};
+
 
 onMounted(() => {
     document.title = 'Accueil';
