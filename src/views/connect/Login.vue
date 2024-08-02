@@ -2,13 +2,40 @@
 import { supabase } from '@/lib/supabaseClient';
 import router from '@/router';
 import bcrypt from 'bcryptjs';
+import { ref } from 'vue';
 document.title = 'Connexion';
 
-let errorRegister = '';
+let errorRegister = ref('');
 
 const login = async (event: Event) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const username = formData.get('username') as string;
+    const password = formData.get('password') as string;
+    try {
+        const { data, error } = await supabase.from('users').select('password').eq('username', username);
+        if (data && data.length === 0) {
+            errorRegister.value = 'Nom d\'utilisateur ou mot de passe incorrect';
+            return;
+        }
+        const hash = data && data.length > 0 ? data[0].password : null;
+        if (bcrypt.compareSync(password, hash)) {
+            sessionStorage.setItem('name', username);
+            router.push('/');
+            setTimeout(() => {
+                location.reload();
+            }, 100);
 
+        } else {
+            errorRegister.value = 'Nom d\'utilisateur ou mot de passe incorrect';
+        }
+    } catch (error) {
+        errorRegister.value = 'Une erreur est survenue';
+    }
 };
+
+
 </script>
 
 <template>
