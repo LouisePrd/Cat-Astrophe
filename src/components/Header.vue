@@ -27,7 +27,9 @@ onMounted(() => {
             <a href="/">
                 <img src="/props/logo.png" alt="logo">
             </a>
-            <h1>Chat-strologie</h1>
+            <a href="/">
+                <h1>Chat-strologie</h1>
+            </a>
             <MusicPlayer />
         </div>
         <nav>
@@ -94,6 +96,20 @@ onMounted(() => {
         font-size: 1.8rem;
     }
 
+    @keyframes color-change {
+        0% {
+            color: white;
+        }
+        100% {
+            color: var(--secondary-color);
+        }
+    }
+
+    h1:hover {
+        color: var(--secondary-color);
+        animation: color-change 0.5s;
+    }
+
     nav, li {
         display: flex;
         align-items: center;
@@ -110,6 +126,10 @@ onMounted(() => {
     li {
         list-style: none;
         cursor: pointer;
+    }
+
+    li:hover {
+        text-decoration: underline;
     }
 
     a {

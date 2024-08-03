@@ -1,24 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { nextTick } from 'vue';
-let name = ref('');
-let showGreeting = ref(false);
-let showInput = ref(true);
+let showGreeting = ref(true);
 let showShame = ref(true);
 let showAll = ref(true);
-
-const addName = () => {
-    if (name.value.trim()) {
-        showGreeting.value = true;
-        showInput.value = false;
-        showShame.value = false;
-        sessionStorage.setItem('name', name.value);
-        let audio = document.getElementById('ambient-sound') as HTMLImageElement;
-        if (audio) {
-            audio.click();
-        }
-    }
-}
 
 const createDots = (numDots: number) => {
     let html = document.querySelector('html');
@@ -60,7 +45,6 @@ const progressiveDisplay = async (message: string) => {
     } else {
         console.error('Element with class "writing" not found.');
     }
-
 };
 
 
@@ -92,7 +76,7 @@ const judgingMessage = () => {
         const messages = [
             '<br>Mais pas mal.',
             '<br>Vraiment pas mal.',
-            '<br><br>Passons aux choses sérieuses.<br>Clique sur la page <a href="/astro" style="color: inherit;" >Astro</a>.'
+            '<br><br>Passons aux choses sérieuses.<br><a href="/login" style="color: inherit;">Connecte toi</a> ou <a href="/register" style="color: inherit;">inscris toi</a> pour découvrir la suite.'
         ];
 
         messages.forEach((msg, index) => {
@@ -119,14 +103,9 @@ const judgingMessage = () => {
         </p>
     </div>
 
-    <div v-if="showInput">
-        <p>C'est quoi ton petit nom ?</p>
-        <input class="name" type="text" v-model="name" placeholder="J'écoute">
-        <button class="start" @click="addName">Valider</button>
-    </div>
 
-    <div v-if="showGreeting">
-        <p>Joli nom ! <br> Content de te voir ici {{ name }}. Tu vas bien ?</p>
+    <div class="greeting" v-if="showGreeting">
+        <p>En tout cas, content de te voir ici ! <br>Avant de commencer, quelques mots à partager ?</p>
         <input class="share" type="text" placeholder="Des choses à partager">
         <button class="start" @click="displayMessage">Envoyer</button>
         <p class="comeOn"></p>
@@ -174,7 +153,7 @@ p {
     font-size: var(--font-size-small);
 }
 
-.name,
+
 .share {
     font-family: var(--font-text);
     font-size: var(--font-size-xsmall);
@@ -243,5 +222,9 @@ p {
     color: var(--secondary-color);
     text-align: center;
     margin-top: 1rem;
+}
+
+.greeting {
+    margin-top: 3rem;
 }
 </style>
