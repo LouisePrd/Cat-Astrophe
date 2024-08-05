@@ -1,13 +1,19 @@
 # Cat-Astrophe
 
-Currently on vacation with way too much free time so I'm trying some stuff. The code is a bit sketchy and I'm not gonna lie, so the design is, but I'm doing my best to improve it as I learn Vue.<br>
-
+## What and why ?
+Currently on vacation with way too much free time so I'm trying some stuff. The code is a bit sketchy and I'm not gonna lie, so the design is, but I'm doing my best to improve it as I learn Vue.
 <p align="center">
     Fake it til u make it, right ?<br>
     <img src="https://github.com/user-attachments/assets/3f8b2104-01ac-4904-a15d-73d71de80a5f" alt="emote" width="100"/>
 </p>
 
-<strong>WIP :</strong>
+## Testing
+Registration works, but if don't feel like signing up for an account<br>
+login : louise<br>
+password : test<br>
+
+
+## Work in progress
 - Connect database ✅<br>
 - Register ✅<br>
 - Login ✅<br>
