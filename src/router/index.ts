@@ -2,14 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/views/Home.vue';
 import GamePage from '@/views/Game.vue';
 import AboutPage from '@/views/About.vue';
-import ProfilePage from '@/views/Profile.vue';
+import ProfilePage from '@/views/ProfilePage.vue';
 import LoginPage from '@/views/connect/Login.vue';
 import RegisterPage from '@/views/connect/Register.vue';
 import '@/assets/main.css';
 
 const routes = [
   { path: '/', component: HomePage },
-  { path: '/game', component: GamePage },
+  { path: '/games', component: GamePage },
   { path: '/about', component: AboutPage },
   { path: '/profile', component: ProfilePage },
   { path: '/login', component: LoginPage },
