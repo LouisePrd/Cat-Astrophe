@@ -42,7 +42,7 @@ onMounted(() => {
                     <router-link to="/">Accueil</router-link>
                 </li>
                 <li v-if="nameUser">
-                    <router-link to="/game">Game</router-link>
+                    <router-link to="/games">Games</router-link>
                 </li>
                 <li>
                     <router-link to="/about">A propos</router-link>

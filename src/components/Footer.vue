@@ -20,5 +20,6 @@
         font-family: var(--font-text);
         font-size: var(--font-size-xxsmall);
         opacity: 0.95;
+        z-index: 10;
     }
 </style>
