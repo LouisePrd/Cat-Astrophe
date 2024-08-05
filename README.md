@@ -8,7 +8,7 @@ Currently on vacation with way too much free time so I'm trying some stuff. The 
 </p>
 
 ## Testing
-Registration works, but if don't feel like signing up for an account<br>
+Registration with hashing works but if don't feel like signing up for an account<br>
 login : louise<br>
 password : test<br>
 
