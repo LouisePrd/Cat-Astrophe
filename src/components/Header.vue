@@ -28,7 +28,7 @@ onMounted(() => {
                 <img src="/props/logo.png" alt="logo">
             </a>
             <a href="/">
-                <h1>Chat-strologie</h1>
+                <h1>Cat-astrophe</h1>
             </a>
             <MusicPlayer />
         </div>

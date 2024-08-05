@@ -105,7 +105,7 @@ const judgingMessage = () => {
 
 
     <div class="greeting" v-if="showGreeting">
-        <p>En tout cas, content de te voir ici ! <br>Avant de commencer, quelques mots à partager ?</p>
+        <p>Content de te voir ici ! <br>Avant de commencer, quelques mots à partager ?</p>
         <input class="share" type="text" placeholder="Des choses à partager">
         <button class="start" @click="displayMessage">Envoyer</button>
         <p class="comeOn"></p>
@@ -168,7 +168,7 @@ p {
 }
 
 .shame {
-    animation: fadeIn 10s;
+    animation: fadeIn 8s;
     font-size: var(--font-size-xxsmall);
 }
 
