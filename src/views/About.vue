@@ -48,4 +48,34 @@ h1 {
     padding-bottom: 1.3rem;
     margin-bottom: 0.5rem;
 }
+
+/* Media queries */
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: var(--font-size-medium);
+    }
+    
+    .presentation {
+        width: 70%;
+    }
+
+    .presentation p {
+        font-size: var(--font-size-xxsmall);
+    }
+}
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: var(--font-size-medium);
+    }
+    
+    .presentation {
+        width: 80%;
+    }
+
+    .presentation p {
+        font-size: var(--font-size-xxsmall);
+    }
+}
+
 </style>

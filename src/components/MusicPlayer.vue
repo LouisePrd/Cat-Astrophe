@@ -50,4 +50,10 @@ img {
     margin-left: 1rem;
     margin-top: 5px;
 }
+
+@media screen and (max-width: 800px) {
+    img {
+        width: 30px;
+    }
+}
 </style>

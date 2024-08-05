@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import router from '../router/index';
 import MusicPlayer from '@/components/MusicPlayer.vue';
-import { ref , onMounted} from 'vue';
+import { ref, onMounted } from 'vue';
 
 const nameUser = ref<string | null>(sessionStorage.getItem('name'));
 
@@ -9,6 +9,10 @@ const disconnect = () => {
     sessionStorage.removeItem('name');
     nameUser.value = '';
     router.push('/');
+}
+
+const profileRedirect = () => {
+    router.push('/profile');
 }
 
 window.addEventListener('storage', () => {
@@ -34,7 +38,7 @@ onMounted(() => {
         </div>
         <nav>
             <ul>
-                <li>
+                <li id="home">
                     <router-link to="/">Accueil</router-link>
                 </li>
                 <li v-if="nameUser">
@@ -52,9 +56,9 @@ onMounted(() => {
                     </li>
                 </div>
                 <div class="profile" v-if="nameUser">
-                    <img id="img-profile" src="/props/profile-icon.png" alt="profile">
+                    <img id="img-profile" src="/props/profile-icon.png" alt="profile" @click="profileRedirect">
                     <router-link to="/profile">{{ nameUser }}</router-link>
-                    <li @click="disconnect">Déconnexion</li>
+                    <li class="disconnect" @click="disconnect">Déconnexion</li>
                 </div>
             </ul>
         </nav>
@@ -62,89 +66,122 @@ onMounted(() => {
 </template>
 
 <style scoped>
-    header {
-        position: fixed;
-        background-color: #5e4a36;
+header {
+    position: fixed;
+    background-color: #5e4a36;
+    color: white;
+    font-family: var(--font-text);
+    font-size: 1.2rem;
+    top: 0;
+    width: 100%;
+    opacity: 0.95;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+@keyframes color-change {
+    0% {
         color: white;
-        font-family: var(--font-text);
-        font-size: 1.2rem;
-        top: 0;
-        width: 100%;
-        opacity: 0.95;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
-        box-sizing: border-box;
     }
 
-    .left-section {
-        display: flex;
-        align-items: center;
+    100% {
+        color: var(--secondary-color);
+    }
+}
+
+h1:hover {
+    color: var(--secondary-color);
+    animation: color-change 0.5s;
+}
+
+nav,
+li {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    padding-right: 2rem;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}
+
+li:hover {
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.disconnect {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+#img-profile {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 800px) {
+    #home {
+        display: none;
+    }
+
+    h1,
+    li {
+        font-size: 0.8rem;
     }
 
     img {
-        width: 70px;
-        height: 70px;
-        margin-right: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    h1 {
-        margin: 0;
-        font-size: 1.8rem;
-    }
-
-    @keyframes color-change {
-        0% {
-            color: white;
-        }
-        100% {
-            color: var(--secondary-color);
-        }
-    }
-
-    h1:hover {
-        color: var(--secondary-color);
-        animation: color-change 0.5s;
-    }
-
-    nav, li {
-        display: flex;
-        align-items: center;
-    }
-
-    ul {
-        display: flex;
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
-        padding-right: 2rem;
-    }
-
-    li {
-        list-style: none;
-        cursor: pointer;
-    }
-
-    li:hover {
-        text-decoration: underline;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
+        width: 35px;
+        height: 35px;
     }
 
     .profile {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
-    #img-profile {
-        width: 30px;
-        height: 30px;
+    p {
+        font-size: 0.8rem;
     }
+}
 </style>

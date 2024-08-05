@@ -227,4 +227,15 @@ p {
 .greeting {
     margin-top: 3rem;
 }
+
+@media screen and (max-width: 800px) {
+
+    h1 {
+        font-size: var(--font-size-medium);
+    }
+
+    p, a {
+        font-size: var(--font-size-xsmall);
+    }
+}
 </style>
