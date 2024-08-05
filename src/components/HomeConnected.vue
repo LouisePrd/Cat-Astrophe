@@ -3,6 +3,7 @@
     <div>
         <h1>Cat-astrophe</h1>
         <p>Encore un projet douteux</p>
+        
     </div>
 </template>
 
