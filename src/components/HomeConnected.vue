@@ -1,8 +1,8 @@
 
 <template>
-    <div class="second-entry">
-        <h1>Chat-strologie</h1>
-        <p>Un site pour les gens qui aiment les chats et l'astrologie. <br> Ou pas.</p>
+    <div>
+        <h1>Cat-astrophe</h1>
+        <p>Encore un projet douteux</p>
     </div>
 </template>
 
