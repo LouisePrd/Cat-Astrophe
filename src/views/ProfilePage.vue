@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { supabase } from '@/lib/supabaseClient';
 import Profile from '@/components/Profile.vue';
+import FriendList from '@/components/FriendList.vue';
 import { ref } from 'vue';
 document.title = 'Profil';
 const username = ref<string>(sessionStorage.getItem('name') || '');
@@ -16,6 +16,7 @@ const username = ref<string>(sessionStorage.getItem('name') || '');
     </div>
     <div v-else>
         <Profile :username="username" />
+        <FriendList :username="username" />
     </div>
 </template>
 

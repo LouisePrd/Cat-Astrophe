@@ -101,6 +101,45 @@ getUrlCat();
 </template>
 
 <style scoped>
+
+p {
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--font-size-small);
+    margin: 0 auto;
+}
+
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    font-family: var(--font-text);
+    font-size: var(--font-size-xxsmall);
+    border-radius: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+img {
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
 .allProfile {
     display: flex;
     flex-direction: row;
@@ -110,14 +149,6 @@ getUrlCat();
     gap: 5rem;
     flex-wrap: wrap;
     align-items: stretch;
-}
-
-p {
-    font-family: var(--font-text);
-    color: var(--secondary-color);
-    text-align: center;
-    font-size: var(--font-size-small);
-    margin: 0 auto;
 }
 
 .profil {
@@ -153,11 +184,35 @@ p {
     text-align: justify;
 }
 
+
+.edit {
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.game {
+    background-color: rgba(128, 128, 128, 0.5);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
+    min-height: 8rem;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 20rem;
+}
+
 #title-quote, #title-score {
     font-family: var(--font-title);
     color: var(--primary-color);
     text-align: center;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-xsmall);
     margin-bottom: 1rem;
 }
 
@@ -170,38 +225,6 @@ p {
     padding-right: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.edit {
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin: 1rem;
-    cursor: pointer;
-    font-family: var(--font-text);
-    font-size: var(--font-size-xxsmall);
-    border-radius: 0.5rem;
-}
-
-button:hover {
-    background-color: var(--secondary-color);
-    color: black;
-}
-
-img {
-    border-radius: 50%;
-    margin: 0 auto;
-    display: block;
     margin-bottom: 0.5rem;
 }
 
@@ -218,22 +241,4 @@ img {
     cursor: pointer;
 }
 
-.game {
-    background-color: rgba(128, 128, 128, 0.5);
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
-    min-height: 8rem;
-}
-
-.right-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
 </style>
