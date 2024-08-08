@@ -21,6 +21,11 @@ document.title = 'A propos';
 </template>
 
 <style scoped>
+
+html {
+    cursor: url('../../public/props/cursor1.png'), auto;
+}
+
 h1 {
     color: var(--primary-color);
     font-size: var(--font-size-large);

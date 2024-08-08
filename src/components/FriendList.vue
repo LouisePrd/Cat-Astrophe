@@ -7,14 +7,16 @@ const props = defineProps<{
     user_id: string;
 }>();
 
-let friendUsernames = ref<string[]>([]);
+let friendUsernames = ref<{ username: string }[]>([]);
 
 const getFriendUsernames = async () => {
     try {
         let { data, error } = await supabase
             .from('friendships')
             .select(`
-                friend_username:user!friend_id(username)
+                friend_id (
+                    username
+                )
             `)
             .eq('user_id', props.user_id);
 
@@ -23,25 +25,23 @@ const getFriendUsernames = async () => {
         }
 
         if (data) {
-            friendUsernames.value = data.map((friend: any) => friend.friend_username);
+            friendUsernames.value = data.map((friend: any) => ({ username: friend.friend_id.username }));
         }
     } catch (error : any) {
         console.error('Problème pendant la récupération des données :', error.message);
     }
 };
 
-
-
-
 getFriendUsernames();
-
 </script>
+
 
 <template>
     <div class="friendlist">
         <h2 id="titleFriendlist">Amis</h2>
         <ul id="list">
-            <li v-for="friend in friendUsernames" :key="friend">{{ friend }}</li>
+            <li v-if="friendUsernames.length === 0">Vous n'avez pas encore d'amis</li>
+            <li v-for="friend in friendUsernames" :key="friend.username">{{ friend.username }}</li>
         </ul>
     </div>
 
@@ -66,7 +66,7 @@ getFriendUsernames();
 }
 
 #list {
-    list-style-type:circle;
+    list-style-type: circle;
     font-family: var(--font-text);
     color: var(--secondary-color);
     text-align: justify;

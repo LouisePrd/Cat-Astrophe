@@ -116,11 +116,15 @@ img {
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
+    height: 27rem;
+    max-width: 32rem;  
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .profil p {
-    width: 80%;
-    margin: 0.5rem auto;
+    width: 90%;
     border-radius: 0.5rem;
     text-align: left;
 }
@@ -128,10 +132,21 @@ img {
 .username,
 .bio {
     color: var(--primary-color);
-    text-align: end;
-    font-family: var(--font-title);
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
+.bio {
+    max-height: 5rem;
+    overflow-y: auto;
+    text-align: justify;
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
 
 .edit {
     padding: 0.5rem 1rem;
@@ -139,6 +154,7 @@ img {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 0;
 }
 
 
@@ -149,6 +165,8 @@ img {
     font-size: var(--font-size-xxsmall);
     margin: 0 auto;
     font-style: italic;
+    width: 60%;
+    margin-bottom: 1rem;
 }
 
 #random-img {

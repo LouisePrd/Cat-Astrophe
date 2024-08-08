@@ -35,7 +35,7 @@ getQuote();
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
-    max-width: 25rem;
+    max-width: 34rem;
     text-align: justify;
     height: 10rem;
     overflow-y: auto;

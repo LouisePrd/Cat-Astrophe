@@ -18,7 +18,9 @@ const user_id = ref<string>(sessionStorage.getItem('user_id') || '');
         <router-link to="/login">Connectez-vous</router-link>
     </div>
     <div v-else class="profile-container">
-        <Profile :username="username" />
+        <div class="left-container">
+            <Profile :username="username" />
+        </div>
 
         <div class="right-container">
             <InspiringQuote />
@@ -54,12 +56,14 @@ p {
     align-items: center;
     gap: 2rem;
     margin-bottom: 5rem;
+    flex-wrap: wrap;
 }
 
 .right-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .sub-right-container {
@@ -69,8 +73,31 @@ p {
     gap: 1rem;
 }
 
-.sub-right-container > div {
+.sub-right-container>div {
     width: 40%;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .sub-right-container {
+        flex-direction: row;
+        gap: 1rem;
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sub-right-container {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
 }
 </style>
