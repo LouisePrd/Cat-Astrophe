@@ -23,12 +23,13 @@ const login = async (event: Event) => {
         const hash = data && data.length > 0 ? data[0].password : null;
         if (bcrypt.compareSync(password, hash)) {
             sessionStorage.setItem('name', username);
-            sessionStorage.setItem('user_id', data[0].user_id);
+            if (data && data.length > 0) {
+                sessionStorage.setItem('user_id', data[0].user_id);
+            }
             router.push('/');
             setTimeout(() => {
                 location.reload();
             }, 100);
-
         } else {
             errorRegister.value = 'Nom d\'utilisateur ou mot de passe incorrect';
         }

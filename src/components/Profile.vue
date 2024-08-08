@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { supabase } from '@/lib/supabaseClient';
 import { ref } from 'vue';
-document.title = 'Profil';
-let bio = ref('');
-let urlPic = ref('');
-let isUrlPic = ref(false);
-let randomUrlCat = ref('');
+import router from '@/router/index';
 
 const props = defineProps<{
     username: string;
 }>();
 
-
+document.title = 'Profil';
+let bio = ref('');
+let urlPic = ref('');
+let isUrlPic = ref(false);
+let randomUrlCat = ref('');
 const apiUrlCat = 'https://api.thecatapi.com/v1/images/search';
 
 const getUrlCat = async () => {
@@ -48,6 +48,10 @@ const getUser = async () => {
     }
 };
 
+const clickPic = () => {
+    router.push('/edit-profile');
+};
+
 getUser();
 getUrlCat();
 
@@ -56,7 +60,7 @@ getUrlCat();
 <template>
         <div class="profil">
             <img v-if="isUrlPic" :src="urlPic" alt="Photo de profil" width="100" height="100">
-            <img id="random-img" v-else :src="randomUrlCat" alt="Photo de profil" width="100" height="100">
+            <img id="random-img" v-else :src="randomUrlCat" alt="Photo de profil" width="100" height="100" @click="clickPic">
             <p id="change-pp" v-if="!isUrlPic">Photo de profil aléatoire, cliquez dessus pour ajouter la vôtre</p>
             <p>Nom d'utilisateur<br><span class="username">{{ username }}</span></p>
             <p>Biographie<br><span class="bio">{{ bio }}</span></p>

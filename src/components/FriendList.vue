@@ -25,7 +25,7 @@ const getFriendUsernames = async () => {
         if (data) {
             friendUsernames.value = data.map((friend: any) => friend.friend_username);
         }
-    } catch (error) {
+    } catch (error : any) {
         console.error('Problème pendant la récupération des données :', error.message);
     }
 };
@@ -41,7 +41,7 @@ getFriendUsernames();
     <div class="friendlist">
         <h2 id="titleFriendlist">Amis</h2>
         <ul id="list">
-            <li v-for="friend in friendUsernames" :key="friend">{{ friend.username }}</li>
+            <li v-for="friend in friendUsernames" :key="friend">{{ friend }}</li>
         </ul>
     </div>
 
