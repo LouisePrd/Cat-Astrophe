@@ -6,6 +6,7 @@ import { ref } from 'vue';
 document.title = 'Connexion';
 
 let errorRegister = ref('');
+let user_id = ref('');
 
 const login = async (event: Event) => {
     event.preventDefault();
@@ -14,7 +15,7 @@ const login = async (event: Event) => {
     const username = formData.get('username') as string;
     const password = formData.get('password') as string;
     try {
-        const { data, error } = await supabase.from('user').select('password').eq('username', username);
+        const { data, error } = await supabase.from('user').select('password, user_id').eq('username', username);
         if (data && data.length === 0) {
             errorRegister.value = 'Nom d\'utilisateur ou mot de passe incorrect';
             return;
@@ -22,6 +23,7 @@ const login = async (event: Event) => {
         const hash = data && data.length > 0 ? data[0].password : null;
         if (bcrypt.compareSync(password, hash)) {
             sessionStorage.setItem('name', username);
+            sessionStorage.setItem('user_id', data[0].user_id);
             router.push('/');
             setTimeout(() => {
                 location.reload();

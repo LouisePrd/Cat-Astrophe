@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import Profile from '@/components/Profile.vue';
 import FriendList from '@/components/FriendList.vue';
+import InspiringQuote from '@/components/InspiringQuote.vue';
+import Scores from '@/components/Scores.vue';
 import { ref } from 'vue';
 document.title = 'Profil';
 const username = ref<string>(sessionStorage.getItem('name') || '');
+const user_id = ref<string>(sessionStorage.getItem('user_id') || '');
 
 </script>
 
@@ -14,9 +17,17 @@ const username = ref<string>(sessionStorage.getItem('name') || '');
         <p>Vous n'êtes pas connecté</p>
         <router-link to="/login">Connectez-vous</router-link>
     </div>
-    <div v-else>
+    <div v-else class="profile-container">
         <Profile :username="username" />
-        <FriendList :username="username" />
+
+        <div class="right-container">
+            <InspiringQuote />
+            <div class="sub-right-container">
+                <Scores :username="username" />
+                <FriendList :username="username" :user_id="user_id" />
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -34,6 +45,32 @@ p {
     color: var(--secondary-color);
     text-align: center;
     font-size: var(--font-size-small);
+    margin: 0 auto;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sub-right-container {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    gap: 1rem;
+}
+
+.sub-right-container > div {
+    width: 40%;
     margin: 0 auto;
 }
 </style>

@@ -46,6 +46,7 @@ const register = async (event: Event) => {
             .from('users')
             .insert([{ username, password: hashedPassword }]);
         sessionStorage.setItem('name', username);
+        sessionStorage.setItem('user_id', data[0].user_id);
         connect();
     } catch (error) {
         console.error('Problème pendant le fetch :', (error as any).message);
