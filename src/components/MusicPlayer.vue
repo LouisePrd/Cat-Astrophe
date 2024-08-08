@@ -14,6 +14,7 @@ const playAudio = () => {
             .catch(error => {
                 console.error("Error playing audio:", error);
             });
+    audioPlayer.value.volume = 0.3;
     }
 };
 

@@ -49,6 +49,11 @@ const progressiveDisplay = async (message: string) => {
 
 
 const displayMessage = () => {
+    let ambientSound = document.querySelector('#ambient-sound') as HTMLElement;
+    if (ambientSound) {
+        ambientSound.click();
+    }
+
     let inputUser = document.querySelector('.share');
     if (inputUser instanceof HTMLInputElement && inputUser.value) {
         createDots(100);
@@ -234,7 +239,8 @@ p {
         font-size: var(--font-size-medium);
     }
 
-    p, a {
+    p,
+    a {
         font-size: var(--font-size-xsmall);
     }
 }
