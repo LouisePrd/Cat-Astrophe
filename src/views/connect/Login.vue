@@ -14,7 +14,7 @@ const login = async (event: Event) => {
     const username = formData.get('username') as string;
     const password = formData.get('password') as string;
     try {
-        const { data, error } = await supabase.from('users').select('password').eq('username', username);
+        const { data, error } = await supabase.from('user').select('password').eq('username', username);
         if (data && data.length === 0) {
             errorRegister.value = 'Nom d\'utilisateur ou mot de passe incorrect';
             return;

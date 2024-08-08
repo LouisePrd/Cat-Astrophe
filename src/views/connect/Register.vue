@@ -26,7 +26,7 @@ const register = async (event: Event) => {
     const password = formData.get('password') as string;
     try {
         let { data: users, error }: { data: any, error: any } = await supabase
-            .from('users')
+            .from('user')
             .select('username')
             .eq('username', username);
         if (error) throw error;
