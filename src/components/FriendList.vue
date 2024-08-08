@@ -6,16 +6,29 @@ const props = defineProps<{
     username: string;
 }>();
 
-const getFriendsUser = async () => {
+
+const getFriendUsernames = async () => {
     try {
-        let { data, error }: { data: any, error: any } = await supabase
-            .from('users')
-            .select('username')
-            .eq('username', props.username);
+        let { data, error } = await supabase
+            .from('friendships')
+            .select('friend_user(username)')
+            .eq('username', props.username)
+            .join('user', 'friend_user', 'friend_user.user_id = friendships.friend_id');
+
+        if (error) {
+            throw error;
+        }
+
+        if (data) {
+            friendUsernames.value = data.map(friend => friend.friend_user.username);
+        }
     } catch (error) {
-        console.error('Problème pendant le fetch :', (error as any).message);
+        console.error('Problème pendant la récupération des données :', error.message);
     }
 };
+
+
+getFriendsUser();
 
 </script>
 
@@ -24,6 +37,4 @@ const getFriendsUser = async () => {
 
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

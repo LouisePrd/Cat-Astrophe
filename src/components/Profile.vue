@@ -47,7 +47,7 @@ const getUrlCat = async () => {
 const getUser = async () => {
     try {
         let { data, error }: { data: any, error: any } = await supabase
-            .from('users')
+            .from('user')
             .select('username, bio')
             .eq('username', props.username);
         if (data) {
