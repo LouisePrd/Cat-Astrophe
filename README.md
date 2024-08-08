@@ -6,7 +6,7 @@ Currently on vacation with way too much free time so I'm trying some stuff. The 
     Fake it til u make it, right ?<br>
     <img src="https://github.com/user-attachments/assets/3f8b2104-01ac-4904-a15d-73d71de80a5f" alt="emote" width="100"/><br><br>
     Probably me right now :<br>
-    <img src="https://github.com/user-attachments/assets/31a632e1-9702-4f47-a784-8ffab552dd7b" alt="me" width="250"/>
+    <img src="https://github.com/user-attachments/assets/31a632e1-9702-4f47-a784-8ffab552dd7b" alt="me" width="350"/>
 
 </p>
 
