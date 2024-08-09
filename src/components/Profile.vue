@@ -11,6 +11,7 @@ document.title = 'Profil';
 let bio = ref('');
 let urlPic = ref('');
 let isUrlPic = ref(false);
+let confirmDelete = ref(false);
 let randomUrlCat = ref('');
 const apiUrlCat = 'https://api.thecatapi.com/v1/images/search';
 
@@ -48,6 +49,24 @@ const getUser = async () => {
     }
 };
 
+const deleteProfile = async () => {
+    alert('Êtes-vous sûr de vouloir supprimer votre profil ? <br> Cliquez une nouvelle fois pour confirmer');
+    if (!confirmDelete.value) {
+        confirmDelete.value = true;
+        return;
+    }
+    try {
+        let { error }: { error: any } = await supabase
+            .from('user')
+            .delete()
+            .eq('username', props.username);
+        if (error) throw error;
+        router.push('/');
+    } catch (error) {
+        console.error('Problème pendant le fetch :', (error as any).message);
+    }
+};
+
 const clickPic = () => {
     router.push('/edit-profile');
 };
@@ -59,14 +78,14 @@ getUrlCat();
 
 <template>
         <div class="profil">
-            <img v-if="isUrlPic" :src="urlPic" alt="Photo de profil" width="100" height="100">
-            <img id="random-img" v-else :src="randomUrlCat" alt="Photo de profil" width="100" height="100" @click="clickPic">
+            <img v-if="isUrlPic" :src="urlPic" alt="Photo de profil" width="90" height="90">
+            <img id="random-img" v-else :src="randomUrlCat" alt="Photo de profil" width="90" height="90" @click="clickPic">
             <p id="change-pp" v-if="!isUrlPic">Photo de profil aléatoire, cliquez dessus pour ajouter la vôtre</p>
             <p>Nom d'utilisateur<br><span class="username">{{ username }}</span></p>
             <p>Biographie<br><span class="bio">{{ bio }}</span></p>
             <div class="edit">
-                <button>Modifier</button>
-                <button>Supprimer</button>
+                <button @click="clickPic">Modifier</button>
+                <button @click="deleteProfile">Supprimer</button>
             </div>
         </div>
 </template>
@@ -97,6 +116,7 @@ button {
     font-family: var(--font-text);
     font-size: var(--font-size-xxsmall);
     border-radius: 0.5rem;
+    margin-bottom: 0;
 }
 
 button:hover {
@@ -116,8 +136,8 @@ img {
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
-    height: 27rem;
-    max-width: 32rem;  
+    height: 26rem;
+    max-width: 35rem;  
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -138,14 +158,14 @@ img {
 }
 
 .bio {
-    max-height: 5rem;
+    max-height: 4.5rem;
     overflow-y: auto;
     text-align: justify;
     border: 2px solid var(--primary-color);
     padding: 0.5rem;
     border-radius: 0.5rem;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.3rem;
 }
 
 .edit {
@@ -165,7 +185,6 @@ img {
     font-size: var(--font-size-xxsmall);
     margin: 0 auto;
     font-style: italic;
-    width: 60%;
     margin-bottom: 1rem;
 }
 
