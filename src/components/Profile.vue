@@ -15,6 +15,15 @@ let confirmDelete = ref(false);
 let randomUrlCat = ref('');
 const apiUrlCat = 'https://api.thecatapi.com/v1/images/search';
 
+const disconnect = () => {
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('user_id');
+    router.push('/');
+    setTimeout(() => {
+        location.reload();
+    }, 100);
+}
+
 const getUrlCat = async () => {
     try {
         const response = await fetch(apiUrlCat);
@@ -36,8 +45,14 @@ const getUser = async () => {
             .select('username, bio')
             .eq('username', props.username);
         if (data) {
-            bio.value = data[0].bio;
-            urlPic.value = data[0].urlPic;
+            if (data.bio) {
+                bio.value = data.bio;
+            } else {
+                bio.value = 'Aucune biographie';
+            }
+            if (data.urlPic) {
+                urlPic.value = data.urlPic;
+            }
             if (urlPic.value) {
                 isUrlPic.value = true;
             }
@@ -50,20 +65,23 @@ const getUser = async () => {
 };
 
 const deleteProfile = async () => {
-    alert('Êtes-vous sûr de vouloir supprimer votre profil ? <br> Cliquez une nouvelle fois pour confirmer');
+    alert('Êtes-vous sûr de vouloir supprimer votre profil ? Cliquez une nouvelle fois pour confirmer');
     if (!confirmDelete.value) {
         confirmDelete.value = true;
         return;
     }
-    try {
-        let { error }: { error: any } = await supabase
-            .from('user')
-            .delete()
-            .eq('username', props.username);
-        if (error) throw error;
-        router.push('/');
-    } catch (error) {
-        console.error('Problème pendant le fetch :', (error as any).message);
+    else {
+        try {
+            let { error }: { error: any } = await supabase
+                .from('user')
+                .delete()
+                .eq('username', props.username);
+            if (error) throw error;
+            disconnect();
+            router.push('/');
+        } catch (error) {
+            console.error('Problème pendant le fetch :', (error as any).message);
+        }
     }
 };
 
@@ -77,21 +95,20 @@ getUrlCat();
 </script>
 
 <template>
-        <div class="profil">
-            <img v-if="isUrlPic" :src="urlPic" alt="Photo de profil" width="90" height="90">
-            <img id="random-img" v-else :src="randomUrlCat" alt="Photo de profil" width="90" height="90" @click="clickPic">
-            <p id="change-pp" v-if="!isUrlPic">Photo de profil aléatoire, cliquez dessus pour ajouter la vôtre</p>
-            <p>Nom d'utilisateur<br><span class="username">{{ username }}</span></p>
-            <p>Biographie<br><span class="bio">{{ bio }}</span></p>
-            <div class="edit">
-                <button @click="clickPic">Modifier</button>
-                <button @click="deleteProfile">Supprimer</button>
-            </div>
+    <div class="profil">
+        <img v-if="isUrlPic" :src="urlPic" alt="Photo de profil" width="90" height="90">
+        <img id="random-img" v-else :src="randomUrlCat" alt="Photo de profil" width="90" height="90" @click="clickPic">
+        <p id="change-pp" v-if="!isUrlPic">Photo de profil aléatoire, cliquez dessus pour ajouter la vôtre</p>
+        <p>Nom d'utilisateur<br><span class="username">{{ username }}</span></p>
+        <p>Biographie<br><span class="bio">{{ bio }}</span></p>
+        <div class="edit">
+            <button @click="clickPic">Modifier</button>
+            <button @click="deleteProfile">Supprimer</button>
         </div>
+    </div>
 </template>
 
 <style scoped>
-
 p {
     font-family: var(--font-text);
     color: var(--secondary-color);
@@ -137,7 +154,7 @@ img {
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
     height: 26rem;
-    max-width: 35rem;  
+    max-width: 35rem;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -191,5 +208,4 @@ img {
 #random-img {
     cursor: pointer;
 }
-
 </style>

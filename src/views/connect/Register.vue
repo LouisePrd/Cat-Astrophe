@@ -9,7 +9,7 @@ document.title = 'Inscription';
 let errorRegister = ref('');
 const saltRounds = 10;
 
-const connect = () =>  {
+const connect = () => {
     if (sessionStorage.getItem('name')) {
         router.push('/');
         setTimeout(() => {
@@ -24,34 +24,39 @@ const register = async (event: Event) => {
     const formData = new FormData(form);
     const username = formData.get('username') as string;
     const password = formData.get('password') as string;
+
     try {
-        let { data: users, error }: { data: any, error: any } = await supabase
+        const { data: users, error: selectError } = await supabase
             .from('user')
             .select('username')
             .eq('username', username);
-        if (error) throw error;
-        if (users.length > 0) {
+
+        if (selectError) throw selectError;
+        if (users && users.length > 0) {
             errorRegister.value = 'Ce nom d\'utilisateur est déjà pris';
             return;
-        } else {
-            errorRegister.value = '';
         }
-    } catch (error) {
-        console.error('Problème pendant le fetch :', (error as any).message);
-    }
 
-    const hashedPassword = bcrypt.hashSync(password, saltRounds);
-    try {
-        let { data, error }: { data: any, error: any } = await supabase
-            .from('users')
-            .insert([{ username, password: hashedPassword }]);
+        errorRegister.value = '';
+        const hashedPassword = bcrypt.hashSync(password, saltRounds);
+
+        const { data: insertData, error: insertError } = await supabase
+            .from('user')
+            .insert([{ username, password: hashedPassword }])
+            .select('user_id');
+
+        if (insertError) throw insertError;
         sessionStorage.setItem('name', username);
-        sessionStorage.setItem('user_id', data[0].user_id);
+        if (insertData && insertData.length > 0) {
+            sessionStorage.setItem('user_id', insertData[0].user_id);
+        }
         connect();
-    } catch (error) {
-        console.error('Problème pendant le fetch :', (error as any).message);
+
+    } catch (error: any) {
+        console.error('Problème pendant le fetch :', error.message);
     }
 };
+
 
 
 </script>
@@ -114,12 +119,13 @@ a {
 
 @media screen and (max-width: 800px) {
 
-h1 {
-    font-size: var(--font-size-medium);
-}
+    h1 {
+        font-size: var(--font-size-medium);
+    }
 
-p, a {
-    font-size: var(--font-size-xsmall);
-}
+    p,
+    a {
+        font-size: var(--font-size-xsmall);
+    }
 }
 </style>
