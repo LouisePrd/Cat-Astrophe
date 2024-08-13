@@ -138,7 +138,7 @@ h1 {
     color: var(--primary-color);
     text-align: center;
     font-size: var(--font-size-large);
-    margin-top: 10rem;
+    margin-top: 9rem;
     margin-bottom:1rem;
 }
 
@@ -206,7 +206,6 @@ p {
     font-size: var(--font-size-large);
     color: var(--secondary-color);
     text-align: center;
-    margin-top: 12rem;
 }
 
 .judge {
@@ -214,7 +213,7 @@ p {
     font-size: var(--font-size-xsmall);
     color: var(--secondary-color);
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 5rem;
     opacity: 0;
     transition: opacity 5s ease-in-out;
 }

@@ -22,5 +22,6 @@
         opacity: 0.95;
         z-index: 10;
         left: 0;
+        bottom: 0;
     }
 </style>

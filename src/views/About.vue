@@ -22,10 +22,6 @@ document.title = 'A propos';
 
 <style scoped>
 
-html {
-    cursor: url('../../public/props/cursor1.png'), auto;
-}
-
 h1 {
     color: var(--primary-color);
     font-size: var(--font-size-large);
@@ -37,8 +33,8 @@ h1 {
 .presentation {
     width: 60%;
     margin: 0 auto;
-    margin-top: 2rem;
-    background-color: rgba(128, 128, 128, 0.2);
+    margin-top: 3rem;
+    background-color: rgba(128, 128, 128, 0.3);
     border-radius: 10px;
 }
 

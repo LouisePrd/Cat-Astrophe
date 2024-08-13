@@ -9,34 +9,29 @@ const user_id = sessionStorage.getItem('user_id');
 let bio = ref('');
 let errorRegister = ref('');
 
+const getBioUser = async () => {
+    try {
+        let { data, error }: { data: any, error: any } = await supabase
+            .from('user')
+            .select('bio')
+            .eq('user_id', user_id);
+        if (error) throw error;
+        if (data && data.length > 0) {
+            bio.value = data[0].bio;
+        }
+    } catch (error) {
+        console.error('Problème pendant le fetch :', (error as any).message);
+    }
+};
+
 const testPP = async (event: Event) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     const file = formData.get('avatar') as File;
-    alert(file.name);
+    
 };
 
-async function uploadProfilePicture(file: File, userId: string) {
-    const fileName = `${userId}/${file.name}`;
-    const { data, error } = await supabase.storage
-        .from('profiles')
-        .upload(fileName, file);
-
-    if (error) {
-        throw new Error(`Erreur lors du téléchargement : ${error.message}`);
-    }
-
-    const { data: publicUrlData, error: urlError = null }: { data: { publicUrl: string; }; error?: any } = supabase.storage
-        .from('profiles')
-        .getPublicUrl(fileName);
-
-    if (urlError) {
-        throw new Error(`Erreur lors de la récupération de l'URL : ${urlError.message}`);
-    }
-
-    return publicUrlData.publicUrl;
-}
 
 
 const editBio = async (event: Event) => {
@@ -57,6 +52,8 @@ const editBio = async (event: Event) => {
     }
 };
 
+getBioUser();
+
 </script>
 
 <template>
@@ -68,7 +65,7 @@ const editBio = async (event: Event) => {
     </form>
     <form @submit="editBio">
         <label id="bio-label" for="bio">Bio</label>
-        <textarea id="bio" name="bio" v-model="bio"></textarea>
+        <textarea id="bio" name="bio" v-model="bio">{{ bio }}</textarea>
         <button type="submit">Enregistrer</button>
     </form>
     <p class="error" v-if="errorRegister">{{ errorRegister }}</p>
@@ -80,7 +77,7 @@ h1 {
     font-size: var(--font-size-large);
     font-family: var(--font-title);
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 9rem;
 }
 
 
@@ -140,5 +137,4 @@ input[type="file"] {
 #bio-label {
     margin-top: 3rem;
 }
-
 </style>

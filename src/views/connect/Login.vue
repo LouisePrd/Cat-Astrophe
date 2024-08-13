@@ -51,7 +51,7 @@ const login = async (event: Event) => {
         <button type="submit">Se Connecter</button>
     </form>
     <p class="error" v-if="errorRegister">{{ errorRegister }}</p>
-    <p class="connect">Vous n'avez pas encore de compte ? <router-link to="/register">Inscrivez-vous</router-link></p>
+    <p class="connect">Vous n'avez pas encore de compte ?<br><router-link to="/register">Inscrivez-vous</router-link></p>
 
 </template>
 
@@ -61,7 +61,7 @@ h1 {
     font-size: var(--font-size-large);
     font-family: var(--font-title);
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 9rem;
 }
 
 form {
@@ -73,7 +73,7 @@ form {
     color: var(--primary-color);
     font-family: var(--font-text);
     font-size: var(--font-size-small);
-    margin-top: 4.5rem;
+    margin-top: 6rem;
 }
 
 input[type="radio"] {
@@ -81,7 +81,7 @@ input[type="radio"] {
 }
 
 .connect {
-    margin-top: 3rem;
+    margin-top: 3.5rem;
     font-family: var(--font-text);
     color: var(--secondary-color);
     text-align: center;

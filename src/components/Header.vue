@@ -66,6 +66,17 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+@keyframes color-change {
+    0% {
+        color: #420B08;
+    }
+
+    100% {
+        color: var(--secondary-color);
+    }
+}
+
 header {
     position: fixed;
     background-color:#c79494;
@@ -85,28 +96,12 @@ header {
     left: 0;
 }
 
-.left-section {
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-}
-
 img {
     width: 70px;
     height: 70px;
     margin-right: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-@keyframes color-change {
-    0% {
-        color: #420B08;
-    }
-
-    100% {
-        color: var(--secondary-color);
-    }
 }
 
 h1:hover {
@@ -142,6 +137,12 @@ a {
     color: #420B08;
 }
 
+.left-section {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 .profile {
     display: flex;
     align-items: center;
@@ -167,10 +168,6 @@ a {
 /* Media queries */
 
 @media screen and (max-width: 800px) {
-    #home {
-        display: none;
-    }
-
     h1,
     li {
         font-size: 0.8rem;
@@ -181,12 +178,21 @@ a {
         height: 35px;
     }
 
+    p {
+        font-size: 0.8rem;
+    }
+
+    #home {
+        display: none;
+    }
+
     .profile {
         gap: 0.5rem;
     }
 
-    p {
-        font-size: 0.8rem;
-    }
+    #header-title {
+    font-size: var( --font-size-xxxsmall);
+}
+    
 }
 </style>

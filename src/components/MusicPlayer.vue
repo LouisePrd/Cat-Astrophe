@@ -53,8 +53,10 @@ img {
 }
 
 @media screen and (max-width: 800px) {
-    img {
+    #ambient-sound {
         width: 30px;
+        margin-left: 0.1rem;
+
     }
 }
 </style>
