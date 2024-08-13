@@ -32,7 +32,7 @@ onMounted(() => {
                 <img src="/props/logo.png" alt="logo">
             </a>
             <a href="/">
-                <h1>Cat-astrophe</h1>
+                <h1 id="header-title">Cat-astrophe</h1>
             </a>
             <MusicPlayer />
         </div>
@@ -68,8 +68,8 @@ onMounted(() => {
 <style scoped>
 header {
     position: fixed;
-    background-color: #5e4a36;
-    color: white;
+    background-color:#c79494;
+    color: #420B08;
     font-family: var(--font-text);
     font-size: 1.2rem;
     top: 0;
@@ -95,14 +95,9 @@ img {
     margin-bottom: 5px;
 }
 
-h1 {
-    margin: 0;
-    font-size: 1.8rem;
-}
-
 @keyframes color-change {
     0% {
-        color: white;
+        color: #420B08;
     }
 
     100% {
@@ -140,7 +135,7 @@ li:hover {
 
 a {
     text-decoration: none;
-    color: white;
+    color: #420B08;
 }
 
 .profile {
@@ -157,6 +152,12 @@ a {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+#header-title {
+    margin: 0;
+    font-size: var( --font-size-small);
+    font-family: var(--font-title);
 }
 
 /* Media queries */

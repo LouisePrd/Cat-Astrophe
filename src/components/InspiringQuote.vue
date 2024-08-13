@@ -23,7 +23,7 @@ getQuote();
 
 <template>
     <div class="quote">
-        <p id="title-quote">Citation inspirante</p>
+        <p id="title-quote">Citation aléatoire</p>
         <p id="text-quote">{{ quote }}</p>
     </div>
 

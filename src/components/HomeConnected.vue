@@ -35,7 +35,8 @@ h1 {
     color: var(--primary-color);
     text-align: center;
     font-size: var(--font-size-large);
-    margin-top: 8rem;
+    margin-top: 10rem;
+    margin-bottom: 2rem;
 }
 
 p {

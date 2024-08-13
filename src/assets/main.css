@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'Zagora-mLEPG';
-  src: url('/fonts/Zagora-mLEPG.woff') format('woff');
+  font-family: 'Talktoth';
+  src: url('/fonts/talktoth.ttf') format('woff');
 }
 
 @font-face {
-  font-family: 'VigranMaroll';
-  src: url('/fonts/VigranMaroll-2OzWK.otf') format('opentype');
+  font-family: 'Cmonnear';
+  src: url('/fonts/cmonnear.ttf') format('truetype');
 }
 
 html {
-  background-image: url('/background-astro.jpg');
+  background-image: url('/backgrounds/mainback.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,11 +19,11 @@ html {
 
 :root {
   /* Colors */
-  --primary-color: #e5a768;
+  --primary-color: #c96f6f;
   --secondary-color: #e1c5b0;
   /* Fonts */
-  --font-title: 'VigranMaroll', sans-serif;
-  --font-text: 'Zagora-mLEPG', sans-serif;
+  --font-title: 'Cmonnear', sans-serif;
+  --font-text: 'Talktoth', sans-serif;
   /* Sizes */
   --font-size-very-large: 4.5em;
   --font-size-large: 3.2em;
