@@ -66,7 +66,7 @@ h1 {
     }
 
     .presentation p {
-        font-size: var(--font-size-xxsmall);
+        font-size: var(--font-size-xsmall);
     }
 }
 @media screen and (max-width: 800px) {

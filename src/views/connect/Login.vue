@@ -72,6 +72,8 @@ form {
     gap: 0.5rem;
     color: var(--primary-color);
     font-family: var(--font-text);
+    font-size: var(--font-size-small);
+    margin-top: 4.5rem;
 }
 
 input[type="radio"] {

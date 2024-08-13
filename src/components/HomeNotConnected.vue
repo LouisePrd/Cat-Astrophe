@@ -162,7 +162,7 @@ p {
 
 .share {
     font-family: var(--font-text);
-    font-size: var(--font-size-xsmall);
+    font-size: var(--font-size-small);
     color: var(--secondary-color);
     background-color: transparent;
     border: 2px solid var(--secondary-color);
@@ -175,12 +175,13 @@ p {
 
 .shame {
     animation: fadeIn 8s;
+    margin-top: 2rem;
     font-size: var(--font-size-xxsmall);
 }
 
 .start {
     font-family: var(--font-text);
-    font-size: var(--font-size-xsmall);
+    font-size: var(--font-size-small);
     color: var(--secondary-color);
     background-color: transparent;
     border: 2px solid var(--secondary-color);

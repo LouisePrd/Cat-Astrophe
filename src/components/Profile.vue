@@ -45,13 +45,14 @@ const getUser = async () => {
             .select('username, bio')
             .eq('username', props.username);
         if (data) {
-            if (data.bio) {
-                bio.value = data.bio;
+            const userData = data[0];
+            if (userData.bio) {
+                bio.value = userData.bio;
             } else {
-                bio.value = 'Aucune biographie';
+                userData.value = 'Aucune biographie';
             }
-            if (data.urlPic) {
-                urlPic.value = data.urlPic;
+            if (userData.urlPic) {
+                urlPic.value = userData.urlPic;
             }
             if (urlPic.value) {
                 isUrlPic.value = true;
@@ -202,7 +203,8 @@ img {
     font-size: var(--font-size-xxsmall);
     margin: 0 auto;
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 
 #random-img {
