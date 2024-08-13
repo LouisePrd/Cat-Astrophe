@@ -80,11 +80,15 @@ header {
     align-items: center;
     padding: 0 1rem;
     box-sizing: border-box;
+    overflow-x: hidden;
+    margin: 0;
+    left: 0;
 }
 
 .left-section {
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 img {
