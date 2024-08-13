@@ -7,7 +7,6 @@ Currently on vacation with way too much free time so I'm trying some stuff. The 
     <img src="https://github.com/user-attachments/assets/3f8b2104-01ac-4904-a15d-73d71de80a5f" alt="emote" width="100"/><br><br>
     Probably me right now :<br><br>
     <img src="https://github.com/user-attachments/assets/31a632e1-9702-4f47-a784-8ffab552dd7b" alt="me" width="350"/>
-
 </p>
 
 ## Testing
@@ -24,3 +23,11 @@ password : test<br>
 - Manage profile (edit bio ✅, edit avatar, delete account ✅)<br>
 - Friends list ✅<br>
 - Comments profile<br>
+
+## Experiments
+
+Here are some artistic directions I tried while creating the website :<br>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/dbc663c7-bfdc-4c6b-b64b-6bdd21013a51" width="600"/>
+<img src="https://github.com/user-attachments/assets/3169bf78-6d72-4870-aef1-a37a054e8ef8" width="600"/>
+</p>
