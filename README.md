@@ -32,3 +32,11 @@ Here are some artistic directions I tried while creating the website :<br>
 <img src="https://github.com/user-attachments/assets/3169bf78-6d72-4870-aef1-a37a054e8ef8" width="500"/><br>
 <img src="https://github.com/user-attachments/assets/0b2d0303-4149-4072-b704-9c222b83818c" width="500"/>
 </p>
+
+## Technical aspects
+
+**Database**
+<br>
+<p align="center">
+<img width="500" alt="Diagramme" src="https://github.com/user-attachments/assets/68bd24a0-4fe6-4626-86c3-c3b1a4e429fb">
+</p>
