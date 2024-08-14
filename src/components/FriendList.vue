@@ -50,7 +50,7 @@ getFriendUsernames();
 
 <style scoped>
 .friendlist {
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.6);
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);

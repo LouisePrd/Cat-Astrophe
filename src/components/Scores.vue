@@ -4,18 +4,18 @@
 
 <template>
     <div class="game">
-        <p id="title-score">Scores des jeux</p>
+        <p id="title-score">Liste des canards</p>
         <ul id="text-score">
-            <li>Jeux 1 : 0</li>
-            <li>Jeux 2 : 0</li>
-            <li>Jeux 3 : 0</li>
+            <li>Tom (Health : 16)</li>
+            <li>Jude (Health : 12)</li>
+            <li>Kristen (Health : 4)</li>
         </ul>
     </div>
 </template>
 
 <style scoped>
 .game {
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.6);
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);

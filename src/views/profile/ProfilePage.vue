@@ -63,7 +63,6 @@ p {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
 .sub-right-container {
