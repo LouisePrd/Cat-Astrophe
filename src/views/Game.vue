@@ -1,19 +1,25 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-document.title = 'Game';
+import Duck from '@/components/Duck.vue';
+document.title = 'Alaska';
+
+
 
 </script>
 
 <template>
+    <h1 id="question">Et si on partait vraiment en Alaska ?</h1>
+    <Duck />
 
 </template>
 
 <style scoped>
-h1 {
+#question {
     color: var(--primary-color);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xxxsmall);
     font-family: var(--font-title);
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 6rem;
+    font-style: italic;
 }
 </style>
