@@ -28,6 +28,7 @@ password : test<br>
 
 Here are some artistic directions I tried while creating the website :<br>
 <p align="center">
-<img src="https://github.com/user-attachments/assets/dbc663c7-bfdc-4c6b-b64b-6bdd21013a51" width="600"/>
-<img src="https://github.com/user-attachments/assets/3169bf78-6d72-4870-aef1-a37a054e8ef8" width="600"/>
+<img src="https://github.com/user-attachments/assets/dbc663c7-bfdc-4c6b-b64b-6bdd21013a51" width="500"/><br>
+<img src="https://github.com/user-attachments/assets/3169bf78-6d72-4870-aef1-a37a054e8ef8" width="500"/><br>
+<img src="https://github.com/user-attachments/assets/0b2d0303-4149-4072-b704-9c222b83818c" width="500"/>
 </p>
