@@ -23,6 +23,11 @@ password : test<br>
 - Manage profile (edit bio ✅, edit avatar, delete account ✅)<br>
 - Friends list ✅<br>
 - Comments profile<br>
+- Game :<br>
+  - Adopt duck<br>
+  - Naming<br>
+  - Manage his stats (happiness, hunger, fatigue, thirst, health)<br>
+  - Money system (buying, selling, shopping)
 
 ## Experiments
 
@@ -30,13 +35,12 @@ Here are some artistic directions I tried while creating the website :<br>
 <p align="center">
 <img src="https://github.com/user-attachments/assets/dbc663c7-bfdc-4c6b-b64b-6bdd21013a51" width="500"/><br>
 <img src="https://github.com/user-attachments/assets/3169bf78-6d72-4870-aef1-a37a054e8ef8" width="500"/><br>
-<img src="https://github.com/user-attachments/assets/0b2d0303-4149-4072-b704-9c222b83818c" width="500"/>
 </p>
 
 ## Technical aspects
 
-**Database**
-<br>
+**Database**<br>
+Using <a href="https://supabase.com/" target="_blank">Supabase</a>, temporary conceptual data model :</p>
 <p align="center">
 <img width="500" alt="Diagramme" src="https://github.com/user-attachments/assets/68bd24a0-4fe6-4626-86c3-c3b1a4e429fb">
 </p>
