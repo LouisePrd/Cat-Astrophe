@@ -4,7 +4,7 @@
 
 <template>
     <div class="game">
-        <p id="title-score">Scores des jeux (WIP)</p>
+        <p id="title-score">Scores des jeux</p>
         <ul id="text-score">
             <li>Jeux 1 : 0</li>
             <li>Jeux 2 : 0</li>
@@ -25,8 +25,7 @@
     font-family: var(--font-title);
     color: var(--primary-color);
     text-align: center;
-    font-size: var(--font-size-small);
-    margin-bottom: 1rem;
+    font-size: var(--font-size-xsmall);
 }
 
 #text-score {
