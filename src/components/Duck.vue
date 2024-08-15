@@ -5,8 +5,9 @@ import { supabase } from '@/lib/supabaseClient';
 let user_id = ref<number | null>(Number(sessionStorage.getItem('user_id')));
 let duck_name = ref<string | null>(null);
 let found = ref<boolean>(false);
-let arrayStatsName = ref<string[]>(['Bonheur', 'Faim', 'Soif', 'Fatigue', 'Santé']);
-let arrayStats = ref<number[]>([]);
+
+let arrayDucksName = ref<string[]>(['Bonheur', 'Faim', 'Soif', 'Fatigue', 'Santé']);
+const arrayDucks = ref<{ name: string; stats: number[] }[]>([]);
 
 const getDataDuck = async () => {
     try {
@@ -18,17 +19,20 @@ const getDataDuck = async () => {
         if (error) {
             console.error('Problème pendant la récupération des données :', error.message);
         } else if (data && data.length > 0) {
-            duck_name.value = data[0].name;
-            arrayStats.value = [
-                data[0].happiness,
-                data[0].hunger,
-                data[0].thirst,
-                data[0].fatigue,
-                data[0].health,
-            ];
+            arrayDucks.value = data.map(duck => ({
+                name: duck.name,
+                stats: [
+                    duck.happiness,
+                    duck.hunger,
+                    duck.thirst,
+                    duck.fatigue,
+                    duck.health
+                ]
+            }));
             found.value = true;
         } else {
             console.log('Aucune donnée trouvée');
+            found.value = false;
         }
     } catch (error) {
         console.error('Problème pendant le fetch :', (error as any).message);
@@ -40,18 +44,21 @@ getDataDuck();
 
 <template>
     <h1>Mes canards</h1>
-    <div class="duck-profile" v-if="found">
-        <p>🦆</p>
-        <h2>{{ duck_name }}</h2>
-        <div v-for="(stat, index) in arrayStats" :key="index">
-            <p>{{ arrayStatsName[index] }} : {{ stat }}</p>
+    <div class="canards" v-if="found">
+        <div v-for="(duck, index) in arrayDucks" :key="index" class="duck-profile">
+            <p>🦆</p>
+            <h2>{{ duck.name }}</h2>
+            <div v-for="(stat, i) in duck.stats" :key="i">
+                <p>{{ arrayDucksName[i] }} : {{ stat }}</p>
+            </div>
+            <a :href="'/duck/' + duck.name" id="voir">Voir</a>
         </div>
     </div>
-
     <div v-else>
         <p>Vous n'avez pas encore de canard</p>
     </div>
 </template>
+
 
 <style scoped>
 h1 {
@@ -59,7 +66,7 @@ h1 {
     font-size: var(--font-size-large);
     font-family: var(--font-title);
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 5.5rem;
     margin-top: 3rem;
 }
 
@@ -86,8 +93,36 @@ p {
     background-color: rgba(128, 128, 128, 0.5);
     border-radius: 10px;
     padding: 1rem;
-    margin: 0 auto;
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
     width: fit-content;
 }
+
+#voir {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    font-family: var(--font-text);
+    font-size: var(--font-size-xxsmall);
+    border-radius: 0.5rem;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+#voir:hover {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+.canards {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
 </style>

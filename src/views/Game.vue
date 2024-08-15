@@ -19,7 +19,7 @@ document.title = 'Alaska';
     font-size: var(--font-size-xxxsmall);
     font-family: var(--font-title);
     text-align: center;
-    margin-top: 6rem;
+    margin-top: 6.5rem;
     font-style: italic;
 }
 </style>
