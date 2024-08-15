@@ -19,11 +19,12 @@ password : test<br>
 - Connect database ✅<br>
 - Register ✅<br>
 - Login ✅<br>
-- Homepage, about page, profile page ✅<br>
+- Homepage + about page + profile page ✅<br>
 - Manage profile (edit bio ✅, edit avatar, delete account ✅)<br>
 - Friends list ✅<br>
 - Comments profile<br>
 - Game :<br>
+  - List ducks ✅<br>
   - Adopt duck<br>
   - Naming<br>
   - Manage his stats (happiness, hunger, fatigue, thirst, health)<br>
