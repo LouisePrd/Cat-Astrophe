@@ -42,22 +42,24 @@ onMounted(() => {
                     <router-link to="/">Accueil</router-link>
                 </li>
                 <li>
-                    <router-link to="/games">Canards</router-link>
+                    <router-link to="/games">Mascotte</router-link>
                 </li>
                 <li>
-                    <router-link to="/culture">Avi-quoi</router-link>
-                </li>
-                <li>
-                    <router-link to="/about">A propos</router-link>
+                    <router-link to="/culture">Avi-quoi ?</router-link>
                 </li>
                 <div class="connected" v-if="!nameUser">
-                    <router-link to="/connect">Connexion</router-link>
+                    <li>
+                        <router-link to="/connect">Connexion</router-link>
+                    </li>
                 </div>
                 <div class="profile" v-if="nameUser">
                     <img id="img-profile" src="/props/profile-icon.png" alt="profile" @click="profileRedirect">
                     <router-link to="/profile">{{ nameUser }}</router-link>
                     <li class="disconnect" @click="disconnect">Déconnexion</li>
                 </div>
+                <li>
+                    <router-link to="/about">A propos</router-link>
+                </li>
             </ul>
         </nav>
     </header>
@@ -118,6 +120,8 @@ ul {
     margin: 0;
     padding: 0;
     padding-right: 2rem;
+    list-style: none;
+    align-items: center;
 }
 
 li {

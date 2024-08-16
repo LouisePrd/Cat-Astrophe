@@ -59,5 +59,28 @@ img {
     margin-top: 1rem;
 }
 
+a {
+    font-family: var(--font-text);
+    font-size: var(--font-size-small);
+    color: var(--secondary-color);
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    width: fit-content;
+}
 
+a:hover {
+    background-color: var(--secondary-color);
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
 </style>

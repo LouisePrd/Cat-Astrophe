@@ -139,7 +139,7 @@ h1 {
     text-align: center;
     font-size: var(--font-size-large);
     margin-top: 9rem;
-    margin-bottom:1rem;
+    margin-bottom: 4rem;
 }
 
 @keyframes fadeIn {
@@ -175,8 +175,12 @@ p {
 
 .shame {
     animation: fadeIn 8s;
-    margin-top: 2rem;
     font-size: var(--font-size-xxsmall);
+    background-color: rgba(128, 128, 128, 0.2);
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .start {
@@ -191,7 +195,7 @@ p {
     display: block;
     margin: 0 auto;
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     cursor: pointer;
 }
 
