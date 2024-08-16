@@ -2,19 +2,27 @@
 import { ref } from 'vue';
 document.title = 'Aviculture';
 
-
+let discover = ref(false);
 
 </script>
 
 <template>
-    <h1 id="question">Avi-quoi ?</h1>
-    <img src="/props/jamy.png" alt="jamy">
-    <p id="intro"> Il y a quelques mois, je suis tombée sur un documentaire sur les canards thérapeuthiques. Vous saviez que 55% des
-        personnes interrogées par un sondage en 2022 déclaraient penser souvent à leur santé mentale ? <br>Moi non mais
-        si on met en correlation ces deux informations, devenir avicultrice, ça sent le métier d'avenir... non ?
-        <br><br>Mais c'est quoi l'aviculture ?</p>
-        
+    <div class="intro" v-if="!discover">
+        <h1 id="question">Avi-quoi ?</h1>
+        <img src="/props/jamy.png" alt="jamy">
+        <p id="intro"> Il y a quelques mois, je suis tombée sur un documentaire sur les canards thérapeuthiques. Vous
+            saviez que 55% des
+            personnes interrogées par un sondage en 2022 déclaraient penser souvent à leur santé mentale ? <br>Moi non
+            mais
+            si on met en correlation ces deux informations, devenir avicultrice, ça sent le métier d'avenir... non ?
+            <br><br>Mais c'est quoi l'aviculture ?
+        </p>
+        <a href="/presentation" @click="discover = true">Découvrir</a>
+    </div>
 
+    <div class="discover" v-if="discover">
+
+    </div>
 
 </template>
 
@@ -50,4 +58,6 @@ img {
     width: 15%;
     margin-top: 1rem;
 }
+
+
 </style>
