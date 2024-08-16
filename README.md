@@ -9,26 +9,18 @@ Currently on vacation with way too much free time so I'm trying some stuff. The 
     <img src="https://github.com/user-attachments/assets/31a632e1-9702-4f47-a784-8ffab552dd7b" alt="me" width="350"/>
 </p>
 
+## Work in progress
+(I know Vue JS is mostly for front-end applications, but I wanted to try some stuff :D)<br>
+- Homepage + about page<br>
+- Register/login + profile page ✅✅<br>
+- Manage profile ✅)<br>
+- Friends list ✅<br>
+- Page presentation duck
+
 ## Testing
 Registration with hashing works but if don't feel like signing up for an account<br>
 login : louise<br>
 password : test<br>
-
-
-## Work in progress
-- Connect database ✅<br>
-- Register ✅<br>
-- Login ✅<br>
-- Homepage + about page + profile page ✅<br>
-- Manage profile (edit bio ✅, edit avatar, delete account ✅)<br>
-- Friends list ✅<br>
-- Comments profile<br>
-- Game :<br>
-  - List ducks ✅<br>
-  - Adopt duck<br>
-  - Naming<br>
-  - Manage his stats (happiness, hunger, fatigue, thirst, health)<br>
-  - Money system (buying, selling, shopping)
 
 ## Experiments
 
@@ -36,12 +28,4 @@ Here are some artistic directions I tried while creating the website :<br>
 <p align="center">
 <img src="https://github.com/user-attachments/assets/dbc663c7-bfdc-4c6b-b64b-6bdd21013a51" width="500"/><br>
 <img src="https://github.com/user-attachments/assets/3169bf78-6d72-4870-aef1-a37a054e8ef8" width="500"/><br>
-</p>
-
-## Technical aspects
-
-**Database**<br>
-Using <a href="https://supabase.com/" target="_blank">Supabase</a>, temporary conceptual data model :</p>
-<p align="center">
-<img width="500" alt="Diagramme" src="https://github.com/user-attachments/assets/68bd24a0-4fe6-4626-86c3-c3b1a4e429fb">
 </p>
