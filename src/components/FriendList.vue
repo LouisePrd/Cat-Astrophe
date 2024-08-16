@@ -56,6 +56,8 @@ getFriendUsernames();
     box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
     margin: 0 auto;
     overflow-y: auto;
+    width: 25rem;
+    height: 11rem;
 }
 
 #titleFriendlist {

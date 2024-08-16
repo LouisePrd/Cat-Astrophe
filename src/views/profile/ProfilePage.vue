@@ -25,7 +25,6 @@ const user_id = ref<string>(sessionStorage.getItem('user_id') || '');
         <div class="right-container">
             <InspiringQuote />
             <div class="sub-right-container">
-                <Scores :username="username" />
                 <FriendList :username="username" :user_id="user_id" />
             </div>
         </div>
@@ -68,12 +67,10 @@ p {
 .sub-right-container {
     display: flex;
     flex-direction: row;
-    height: fit-content;
     gap: 1rem;
 }
 
 .sub-right-container>div {
-    width: 40%;
     margin: 0 auto;
 }
 
