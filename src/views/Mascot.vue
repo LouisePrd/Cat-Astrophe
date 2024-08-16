@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Duck from '@/components/Duck.vue';
-document.title = 'Alaska';
-
-
+import { supabase } from '@/lib/supabaseClient';
+document.title = 'Mascotte';
 
 </script>
 
@@ -15,7 +14,7 @@ document.title = 'Alaska';
 <style scoped>
 h1 {
     color: var(--primary-color);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-medium);
     font-family: var(--font-title);
     text-align: center;
     margin-top: 9rem;
