@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import router from '@/router';
 import { supabase } from '@/lib/supabaseClient';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import bcrypt from 'bcryptjs';
 
 document.title = 'Inscription';
@@ -72,7 +72,6 @@ const register = async (event: Event) => {
         <button type="submit">S'inscrire</button>
     </form>
     <p class="error" v-if="errorRegister">{{ errorRegister }}</p>
-    <p class="connect">Vous avez déjà un compte ?<br><router-link to="/login">Connectez-vous</router-link></p>
 </template>
 
 <style scoped>
@@ -98,14 +97,6 @@ form {
 
 input[type="radio"] {
     display: none;
-}
-
-.connect {
-    margin-top: 3.5rem;
-    font-family: var(--font-text);
-    color: var(--secondary-color);
-    text-align: center;
-    font-size: var(--font-size-small);
 }
 
 a {

@@ -51,12 +51,7 @@ onMounted(() => {
                     <router-link to="/about">A propos</router-link>
                 </li>
                 <div class="connected" v-if="!nameUser">
-                    <li>
-                        <router-link to="/login">Connexion</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/register">Inscription</router-link>
-                    </li>
+                    <router-link to="/connect">Connexion</router-link>
                 </div>
                 <div class="profile" v-if="nameUser">
                     <img id="img-profile" src="/props/profile-icon.png" alt="profile" @click="profileRedirect">
@@ -69,7 +64,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 @keyframes color-change {
     0% {
         color: #420B08;
@@ -82,7 +76,7 @@ onMounted(() => {
 
 header {
     position: fixed;
-    background-color:#c79494;
+    background-color: #c79494;
     color: #420B08;
     font-family: var(--font-text);
     font-size: 1.2rem;
@@ -164,13 +158,14 @@ a {
 
 #header-title {
     margin: 0;
-    font-size: var( --font-size-small);
+    font-size: var(--font-size-small);
     font-family: var(--font-title);
 }
 
 /* Media queries */
 
 @media screen and (max-width: 800px) {
+
     h1,
     li {
         font-size: 0.8rem;
@@ -194,8 +189,8 @@ a {
     }
 
     #header-title {
-    font-size: var( --font-size-xxxsmall);
-}
-    
+        font-size: var(--font-size-xxxsmall);
+    }
+
 }
 </style>

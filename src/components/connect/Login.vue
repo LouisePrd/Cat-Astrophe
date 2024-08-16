@@ -6,7 +6,6 @@ import { ref } from 'vue';
 document.title = 'Connexion';
 
 let errorRegister = ref('');
-let user_id = ref('');
 
 const login = async (event: Event) => {
     event.preventDefault();
@@ -52,7 +51,6 @@ const login = async (event: Event) => {
         <button type="submit">Se Connecter</button>
     </form>
     <p class="error" v-if="errorRegister">{{ errorRegister }}</p>
-    <p class="connect">Vous n'avez pas encore de compte ?<br><router-link to="/register">Inscrivez-vous</router-link></p>
 
 </template>
 
@@ -84,14 +82,6 @@ input[type="radio"] {
 a {
     color: var(--primary-color);
     text-decoration: none;
-}
-
-.connect {
-    margin-top: 3.5rem;
-    font-family: var(--font-text);
-    color: var(--secondary-color);
-    text-align: center;
-    font-size: var(--font-size-small);
 }
 
 .error {
