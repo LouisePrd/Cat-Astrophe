@@ -100,8 +100,8 @@ header {
 }
 
 img {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 50px;
     margin-right: 10px;
     margin-top: 5px;
     margin-bottom: 5px;

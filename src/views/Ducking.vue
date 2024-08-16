@@ -8,14 +8,12 @@ document.title = 'Aviculture';
 
 <template>
     <h1 id="question">Avi-quoi ?</h1>
-    <p id="intro">En codant, j'ai réflechi à mes perspectives d'avenir. Le test de lit était une option intéressante
-        mais
-        compliqué de faire ses 10 000 pas avec ça. Le dogsitting ? Parfois, les chiens,
-        c'est comme les enfants mais en pires. <br>
-        J'ai vu un documentaire sur les canards thérapeuthes il y a quelques mois. Vous saviez que 55% des
-        personnes interrogées par un sondage en 2022 déclaraient penser souvent à leur santé mentale ? Moi non mais
-        si on met en correlation ces deux stats, devenir avicultrice, ça c'est un métier d'avenir... non ?
+    <img src="/props/jamy.png" alt="jamy">
+    <p id="intro"> Il y a quelques mois, je suis tombée sur un documentaire sur les canards thérapeuthiques. Vous saviez que 55% des
+        personnes interrogées par un sondage en 2022 déclaraient penser souvent à leur santé mentale ? <br>Moi non mais
+        si on met en correlation ces deux informations, devenir avicultrice, ça sent le métier d'avenir... non ?
         <br><br>Mais c'est quoi l'aviculture ?</p>
+        
 
 
 </template>
@@ -42,6 +40,14 @@ document.title = 'Aviculture';
     margin: 0 auto;
     background-color: rgba(128, 128, 128, 0.3);
     border-radius: 10px;
-    margin-top: 3rem;
+    margin-top: 1rem;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    margin-top: 1rem;
 }
 </style>
