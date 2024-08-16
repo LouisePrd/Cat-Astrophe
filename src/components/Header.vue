@@ -41,8 +41,11 @@ onMounted(() => {
                 <li id="home">
                     <router-link to="/">Accueil</router-link>
                 </li>
-                <li v-if="nameUser">
+                <li>
                     <router-link to="/games">Canards</router-link>
+                </li>
+                <li>
+                    <router-link to="/culture">Avi-quoi</router-link>
                 </li>
                 <li>
                     <router-link to="/about">A propos</router-link>

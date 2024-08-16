@@ -10,53 +10,14 @@ let arrayDucksName = ref<string[]>(['Bonheur', 'Faim', 'Soif', 'Fatigue', 'Sant�
 const arrayDucks = ref<{ name: string; stats: number[] }[]>([]);
 
 const getDataDuck = async () => {
-    try {
-        let { data, error } = await supabase
-            .from('duck')
-            .select('name, happiness, hunger, thirst, fatigue, health')
-            .eq('owner_id', user_id.value);
 
-        if (error) {
-            console.error('Problème pendant la récupération des données :', error.message);
-        } else if (data && data.length > 0) {
-            arrayDucks.value = data.map(duck => ({
-                name: duck.name,
-                stats: [
-                    duck.happiness,
-                    duck.hunger,
-                    duck.thirst,
-                    duck.fatigue,
-                    duck.health
-                ]
-            }));
-            found.value = true;
-        } else {
-            console.log('Aucune donnée trouvée');
-            found.value = false;
-        }
-    } catch (error) {
-        console.error('Problème pendant le fetch :', (error as any).message);
-    }
 };
 
 getDataDuck();
 </script>
 
 <template>
-    <h1>Mes canards</h1>
-    <div class="canards" v-if="found">
-        <div v-for="(duck, index) in arrayDucks" :key="index" class="duck-profile">
-            <p>🦆</p>
-            <h2>{{ duck.name }}</h2>
-            <div v-for="(stat, i) in duck.stats" :key="i">
-                <p>{{ arrayDucksName[i] }} : {{ stat }}</p>
-            </div>
-            <a :href="'/duck/' + duck.name" id="voir">Voir</a>
-        </div>
-    </div>
-    <div v-else>
-        <p>Vous n'avez pas encore de canard</p>
-    </div>
+    <div class="canards" v-if="found"></div>
 </template>
 
 

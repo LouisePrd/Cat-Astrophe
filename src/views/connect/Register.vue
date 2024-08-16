@@ -63,6 +63,7 @@ const register = async (event: Event) => {
 
 <template>
     <h1>Inscription</h1>
+    <p id="useless">(L'inscription n'apporte rien, mais c'est fun le back :))</p>
     <form @submit="register">
         <label for="username">Nom d'utilisateur</label>
         <input type="username" id="username" name="username" required>
@@ -92,7 +93,7 @@ form {
     color: var(--primary-color);
     font-family: var(--font-text);
     font-size: var(--font-size-small);
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 input[type="radio"] {
@@ -110,6 +111,14 @@ input[type="radio"] {
 a {
     color: var(--primary-color);
     text-decoration: none;
+}
+
+#useless {
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--font-size-small);
+    margin: 0 auto;
 }
 
 .error {

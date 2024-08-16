@@ -8,18 +8,16 @@ document.title = 'Alaska';
 </script>
 
 <template>
-    <h1 id="question">Et si on partait vraiment en Alaska ?</h1>
+    <h1>Mascotte du site</h1>
     <Duck />
-
 </template>
 
 <style scoped>
-#question {
+h1 {
     color: var(--primary-color);
-    font-size: var(--font-size-xxxsmall);
+    font-size: var(--font-size-large);
     font-family: var(--font-title);
     text-align: center;
-    margin-top: 6.5rem;
-    font-style: italic;
+    margin-top: 9rem;
 }
 </style>

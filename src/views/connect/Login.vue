@@ -43,6 +43,7 @@ const login = async (event: Event) => {
 
 <template>
     <h1>Connexion</h1>
+    <p id="useless">(La connexion n'apporte rien, mais c'est fun le back :))</p>
     <form @submit="login">
         <label for="username">Nom d'utilisateur</label>
         <input type="username" id="username" name="username" required>
@@ -73,11 +74,16 @@ form {
     color: var(--primary-color);
     font-family: var(--font-text);
     font-size: var(--font-size-small);
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 input[type="radio"] {
     display: none;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
 .connect {
@@ -88,16 +94,19 @@ input[type="radio"] {
     font-size: var(--font-size-small);
 }
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
 .error {
     color: rgb(255, 255, 255);
     font-family: var(--font-text);
     font-size: var(--font-size-xsmall);
     text-align: center;
+}
+
+#useless {
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--font-size-small);
+    margin: 0 auto;
 }
 
 </style>

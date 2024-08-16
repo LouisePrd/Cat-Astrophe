@@ -6,6 +6,7 @@ import ProfilePage from '@/views/profile/ProfilePage.vue';
 import LoginPage from '@/views/connect/Login.vue';
 import RegisterPage from '@/views/connect/Register.vue';
 import EditPage from '@/views/profile/EditProfile.vue';
+import Ducking from '@/views/Ducking.vue';
 import '@/assets/main.css';
 
 const routes = [
@@ -16,6 +17,8 @@ const routes = [
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegisterPage },
   { path: '/edit-profile', component: EditPage },
+  { path: '/culture', component: Ducking },
+
 ];
 
 const router = createRouter({
