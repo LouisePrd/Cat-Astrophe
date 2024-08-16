@@ -1,12 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/views/Home.vue';
-import GamePage from '@/views/Game.vue';
+import GamePage from '@/views/Mascot.vue';
 import AboutPage from '@/views/About.vue';
 import ProfilePage from '@/views/profile/ProfilePage.vue';
-import LoginPage from '@/views/connect/Login.vue';
-import RegisterPage from '@/views/connect/Register.vue';
+import Connect from '@/views/Connect.vue';
 import EditPage from '@/views/profile/EditProfile.vue';
-import Ducking from '@/views/Ducking.vue';
+import Intro from '@/views/Presentation.vue';
 import '@/assets/main.css';
 
 const routes = [
@@ -14,10 +13,9 @@ const routes = [
   { path: '/games', component: GamePage },
   { path: '/about', component: AboutPage },
   { path: '/profile', component: ProfilePage },
-  { path: '/login', component: LoginPage },
-  { path: '/register', component: RegisterPage },
+  { path: '/connect', component: Connect },
   { path: '/edit-profile', component: EditPage },
-  { path: '/culture', component: Ducking },
+  { path: '/culture', component: Intro },
 
 ];
 
