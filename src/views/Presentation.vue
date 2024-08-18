@@ -70,7 +70,7 @@ h1 {
     font-size: var(--font-size-medium);
     font-family: var(--font-title);
     text-align: center;
-    margin-top: 9rem;
+    margin-top: 8rem;
 }
 
 p {
@@ -78,7 +78,6 @@ p {
     color: var(--secondary-color);
     text-align: center;
     font-size: var(--font-size-small);
-    width: 60%;
     margin: 0 auto;
     background-color: rgba(128, 128, 128, 0.3);
     border-radius: 10px;
@@ -90,16 +89,8 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 15%;
+    width: 20%;
     margin-top: 1rem;
-}
-
-#question {
-    color: var(--primary-color);
-    font-size: var(--font-size-large);
-    font-family: var(--font-title);
-    text-align: center;
-    margin-top: 9rem;
 }
 
 .intro {
@@ -123,6 +114,12 @@ p {
     padding-bottom: 0.5rem;
     background-color: rgba(128, 128, 128, 0.3);
     border-radius: 10px;
+}
+
+.discover {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
 }
 
 .duck-dev {
@@ -155,6 +152,10 @@ p {
 #duck-dev-img:hover {
     transform: rotate(10deg);
     transition: transform 0.5s ease-in-out;
+}
+
+.discover p {
+    width: 80%;
 }
 
 
