@@ -11,9 +11,9 @@ document.title = 'A propos';
         Ici, on profite de la vie : on se bat avec des APIs, on galère avec les composants, on a envie de se jeter sur la route au lieu d'en créer (un peu border celle-là). Bref, on se demande si partir élever des canards en Alaska serait une activité lucrative.
         Mais surtout on se challenge, alors les canards attendront 🦆
         <br><br>
-        Pourquoi ce site est né ? 
+        Pourquoi ce site a vu le jour ? 
         <br>
-        La réponse elle est vite répondue : parce que j'ai trop de temps devant moi.
+        La réponse elle est vite répondue :<br>parce que j'ai trop de temps devant moi.
         <br><br>
         Bonne visite :)
     </p>
@@ -34,7 +34,7 @@ h1 {
     width: 60%;
     margin: 0 auto;
     margin-top: 3rem;
-    background-color: rgba(128, 128, 128, 0.3);
+    background-color: rgba(128, 128, 128, 0.4);
     border-radius: 10px;
 }
 

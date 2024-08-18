@@ -55,9 +55,10 @@ let discover = ref(false);
                 les avoir vraiment vécus au reveil. Et là, il y a tellement peu de ressources que je crois que ce
                 n'est
                 jamais arrivé ???</p>
+                <span id="checkup">Si
+                    quelqu'un lit ça, t'es sûr que ça va ???</span>
             <p>Bref pas grave, il y a au moins un article qui en parle, ça suffira pour le troll qu'est ce
-                site.<br><span id="checkup">Si
-                    quelqu'un lit ça, t'es sûr que ça va ???</span><br>
+                site.<br>
                 Vous pourrez lire l'article <a id="article"
                     href="https://www.ouest-france.fr/insolite/daniel-le-canard-therapeute-plumes-video-4581875"
                     target=_blank>ici</a> si la curiosité vous
@@ -175,6 +176,20 @@ p {
     transition: transform 0.5s ease-in-out;
 }
 
+#checkup {
+    color: #571e1d;
+    background-color: #571e1d;
+    padding: 0.2rem;
+    cursor: pointer;
+    font-family: var(--font-text);
+    font-size: var(--font-size-xxsmall);
+    display: grid;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
 #checkup:hover {
     color: var(--secondary-color);
     background-color: transparent;
@@ -189,11 +204,6 @@ p {
     color: var(--primary-color);
 }
 
-#checkup {
-    color: #310504;
-    background-color: #310504;
-}
-
 .intro {
     display: flex;
     flex-direction: column;
@@ -203,7 +213,6 @@ p {
     margin: 0 auto;
     margin-top: 1rem;
 }
-
 
 .discover {
     display: flex;
@@ -252,6 +261,8 @@ p {
     height: auto;
     flex-shrink: 0;
     max-width: 12%;
+    transform: rotate(-10deg);
+    z-index: -100;
 }
 
 .block-duck p {
