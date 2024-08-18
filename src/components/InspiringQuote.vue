@@ -30,16 +30,6 @@ getQuote();
 </template>
 
 <style scoped>
-.quote {
-    background-color: rgba(128, 128, 128, 0.6);
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
-    max-width: 25rem;
-    text-align: justify;
-    height: 12rem;
-    overflow-y: auto;
-}
 
 #title-quote {
     font-family: var(--font-title);
@@ -59,6 +49,17 @@ getQuote();
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+.quote {
+    background-color: rgba(128, 128, 128, 0.6);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(240, 187, 90, 0.2);
+    max-width: 25rem;
+    text-align: justify;
+    height: 12rem;
+    overflow-y: auto;
 }
 
 </style>

@@ -19,14 +19,6 @@ let account = ref('false');
 </template>
 
 <style scoped>
-.connect {
-    margin-top: 3.5rem;
-    font-family: var(--font-text);
-    color: var(--secondary-color);
-    text-align: center;
-    font-size: var(--font-size-small);
-}
-
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -35,5 +27,12 @@ a {
 
 a:hover {
     color: var(--secondary-color);
+}
+.connect {
+    margin-top: 3.5rem;
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--font-size-small);
 }
 </style>

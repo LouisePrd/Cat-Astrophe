@@ -125,6 +125,37 @@ const judgingMessage = () => {
 </template>
 
 <style scoped>
+@keyframes moving {
+    from {
+        transform: translateY(-200px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        rotate: -10deg;
+    }
+
+    to {
+        rotate: 0deg;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
 html {
     display: flex;
     flex-direction: column;
@@ -140,16 +171,6 @@ h1 {
     font-size: var(--font-size-large);
     margin-top: 9rem;
     margin-bottom: 4rem;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
 
 p {
@@ -237,6 +258,11 @@ p {
 .greeting {
     margin-top: 3rem;
 }
+
+.title h1 {
+    animation: moving 3s ease-out;
+}
+
 
 @media screen and (max-width: 800px) {
 

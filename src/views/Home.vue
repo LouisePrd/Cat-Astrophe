@@ -3,6 +3,8 @@ import { onMounted, ref } from 'vue';
 import HomeConnected from '@/components/HomeConnected.vue';
 import HomeNotConnected from '@/components/HomeNotConnected.vue';
 
+
+
 const connected = ref(false);
 
 onMounted(() => {
@@ -20,7 +22,3 @@ onMounted(() => {
     <HomeConnected v-if="connected" />
     <HomeNotConnected v-else />
 </template>
-
-
-
-<style scoped></style>

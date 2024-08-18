@@ -149,6 +149,21 @@ img {
     margin-bottom: 0.5rem;
 }
 
+#change-pp {
+    font-family: var(--font-text);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: var(--font-size-xxsmall);
+    margin: 0 auto;
+    font-style: italic;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+#random-img {
+    cursor: pointer;
+}
+
 .profil {
     background-color: rgba(128, 128, 128, 0.6);
     padding: 1rem;
@@ -193,21 +208,5 @@ img {
     align-items: center;
     flex-direction: row;
     margin-bottom: 0;
-}
-
-
-#change-pp {
-    font-family: var(--font-text);
-    color: var(--secondary-color);
-    text-align: center;
-    font-size: var(--font-size-xxsmall);
-    margin: 0 auto;
-    font-style: italic;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-}
-
-#random-img {
-    cursor: pointer;
 }
 </style>

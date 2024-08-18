@@ -84,13 +84,6 @@ a {
     text-decoration: none;
 }
 
-.error {
-    color: rgb(255, 255, 255);
-    font-family: var(--font-text);
-    font-size: var(--font-size-xsmall);
-    text-align: center;
-}
-
 #useless {
     font-family: var(--font-text);
     color: var(--secondary-color);
@@ -98,5 +91,14 @@ a {
     font-size: var(--font-size-small);
     margin: 0 auto;
 }
+
+.error {
+    color: rgb(255, 255, 255);
+    font-family: var(--font-text);
+    font-size: var(--font-size-xsmall);
+    text-align: center;
+}
+
+
 
 </style>

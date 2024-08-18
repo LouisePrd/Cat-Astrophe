@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Duck from '@/components/Duck.vue';
-import { supabase } from '@/lib/supabaseClient';
 document.title = 'Mascotte';
 
 </script>
