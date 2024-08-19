@@ -55,8 +55,8 @@ let discover = ref(false);
                 les avoir vraiment vécus au reveil. Et là, il y a tellement peu de ressources que je crois que ce
                 n'est
                 jamais arrivé ???</p>
-                <span id="checkup">Si
-                    quelqu'un lit ça, t'es sûr que ça va ???</span>
+            <span id="checkup">Si
+                quelqu'un lit ça, t'es sûr que ça va ???</span>
             <p>Bref pas grave, il y a au moins un article qui en parle, ça suffira pour le troll qu'est ce
                 site.<br>
                 Vous pourrez lire l'article <a id="article"
@@ -270,7 +270,7 @@ p {
     flex: 1;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     #duck-dev-img {
         width: 50%;
     }
@@ -278,5 +278,25 @@ p {
     .duck-dev {
         flex-direction: column;
     }
+
+    #discover-btn {
+        margin-bottom: 4rem;
+    }
+
+}
+
+@media (max-width : 700px) {
+    #intro {
+        font-size: var(--font-size-xxsmall);
+    }
+
+    p {
+        font-size: var(--font-size-xxsmall);
+    }
+
+    h1 {
+        font-size: var(--font-size-small);
+    }
+
 }
 </style>
