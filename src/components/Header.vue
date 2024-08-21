@@ -29,7 +29,7 @@ onMounted(() => {
     <header>
         <div class="left-section">
             <a href="/">
-                <img src="/props/logo2.png" alt="logo">
+                <img src="/props/logo.png" alt="logo">
             </a>
             <a href="/">
                 <h1 id="header-title">Cat-astrophe</h1>
