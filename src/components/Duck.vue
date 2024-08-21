@@ -2,24 +2,27 @@
 import { ref } from 'vue';
 import { supabase } from '@/lib/supabaseClient';
 
-let tabDuck = ref<any>([]);
 document.title = 'Mascotte';
-let nourrir = ref('false');
-let jouer = ref('false');
-let donnerABoire = ref('false');
-let mettreAuLit = ref('false');
-let soigner = ref('false');
+
+let tabDuck = ref<any>([]);
+let lastAction = ref<string | null>(null);
+    let actionsDisabled = ref<{ [key: string]: boolean }>({
+    'Nourrir': false,
+    'Jouer': false,
+    'Donner à boire': false,
+    'Mettre au lit': false,
+    'Soigner': false,
+});
 
 const getDataDuck = async () => {
     try {
-        let { data, error } = await supabase
+        let { data } = await supabase
             .from('duck')
             .select('name, happiness, hunger, thirst, fatigue, health')
             .single();
-            console.log(data);
-            if (data) {
-                tabDuck.value = data;
-            }
+        if (data) {
+            tabDuck.value = data;
+        }
     } catch (error) {
         console.error(error);
     }
@@ -27,7 +30,7 @@ const getDataDuck = async () => {
 
 const updateDataDuckDB = async () => {
     try {
-        const { data, error } = await supabase
+        const { error } = await supabase
             .from('duck')
             .update(tabDuck.value)
             .eq('name', tabDuck.value.name);
@@ -39,54 +42,62 @@ const updateDataDuckDB = async () => {
     }
 };
 
-const updateDataDuck = async (event: MouseEvent) => {
-    if (event && event.target) {
-        const target = event.target as HTMLElement;
-        switch (target.textContent) {
-            case 'Nourrir':
-                if (tabDuck.value.hunger > 0 && tabDuck.value.hunger < 20 && nourrir.value === 'false') {
-                    tabDuck.value.hunger -= 1;
-                    nourrir.value = 'true';
-                } else if (nourrir.value === 'true') {
-                    alert('Vous avez déjà nourri" + tabDuck.name + " !');
-                }
-                break;
-            case 'Jouer':
-                if (tabDuck.value.happiness > 0 && tabDuck.value.happiness < 20 && jouer.value === 'false') {
-                    tabDuck.value.happiness += 1;
-                    jouer.value = 'true';
-                } else if (jouer.value === 'true') {
-                    alert('Vous avez déjà joué avec " + tabDuck.name + " !');
-                }
-                break;
-            case 'Donner à boire':
-                if (tabDuck.value.thirst > 0 && tabDuck.value.thirst <= 20 && donnerABoire.value === 'false') {
-                    tabDuck.value.thirst -= 1;
-                    donnerABoire.value = 'true';
-                } else if (donnerABoire.value === 'true') {
-                    alert('Vous avez déjà donné à boire à " + tabDuck.name + " !');
-                }
-                break;
-            case 'Mettre au lit':
-                if (tabDuck.value.fatigue > 0 && tabDuck.value.fatigue < 20 && mettreAuLit.value === 'false') {
-                    tabDuck.value.fatigue -= 1;
-                    mettreAuLit.value = 'true';
-                } else if (mettreAuLit.value === 'true') {
-                    alert('Vous avez déjà mis au lit " + tabDuck.name + " !');
-                }
-                break;
-            case 'Soigner':
-                if (tabDuck.value.health > 0 && tabDuck.value.health < 20 && soigner.value === 'false') {
-                    tabDuck.value.health += 1;
-                    soigner.value = 'true';
-                } else if (soigner.value === 'true') {
-                    alert('Vous avez déjà soigné " + tabDuck.name + " !');
-                }
-                break;
+
+const actions: { [key: string]: () => void } = {
+    'Nourrir': () => {
+        if (tabDuck.value.hunger > 0 && tabDuck.value.hunger <= 20) {
+            tabDuck.value.hunger -= 1;
+        } else {
+            alert('La mascotte n\'a plus faim');
         }
-        updateDataDuckDB();
+    },
+    'Jouer': () => {
+        if (tabDuck.value.happiness >= 0 && tabDuck.value.happiness < 20) {
+            tabDuck.value.happiness += 1;
+        } else {
+            alert('La mascotte n\'a plus envie de jouer');
+        }
+    },
+    'Donner à boire': () => {
+        if (tabDuck.value.thirst > 0 && tabDuck.value.thirst <= 20) {
+            tabDuck.value.thirst -= 1;
+        } else {
+            alert('La mascotte n\'a plus soif');
+        }
+    },
+    'Mettre au lit': () => {
+        if (tabDuck.value.fatigue > 0 && tabDuck.value.fatigue <= 20) {
+            tabDuck.value.fatigue -= 1;
+        } else {
+            alert('La mascotte n\'a plus sommeil');
+        }
+    },
+    'Soigner': () => {
+        if (tabDuck.value.health >= 0 && tabDuck.value.health < 20) {
+            tabDuck.value.health += 1;
+        } else {
+            alert('La mascotte n\'a pas besoin de soins');
+        }
     }
 };
+
+const handleAction = async (event: MouseEvent) => {
+    if (event && event.target) {
+        const target = event.target as HTMLElement;
+        const actionName = target.textContent || '';
+        const action = actions[actionName];
+
+        if (action && !actionsDisabled.value[actionName]) {
+            action();
+            await updateDataDuckDB();
+            actionsDisabled.value[actionName] = true;
+        } else {
+            alert('Action déjà effectuée ou non reconnue.');
+        }
+    }
+};
+
+
 
 getDataDuck();
 </script>
@@ -104,13 +115,13 @@ getDataDuck();
     </div>
 
     <div class="action">
-        <button @click="updateDataDuck">Nourrir</button>
-        <button @click="updateDataDuck">Jouer</button>
-        <button @click="updateDataDuck">Donner à boire</button>
-        <button @click="updateDataDuck">Mettre au lit</button>
-        <button @click="updateDataDuck">Soigner</button>
+        <button @click="handleAction" :disabled="actionsDisabled['Nourrir']">Nourrir</button>
+        <button @click="handleAction" :disabled="actionsDisabled['Jouer']">Jouer</button>
+        <button @click="handleAction" :disabled="actionsDisabled['Donner à boire']">Donner à boire</button>
+        <button @click="handleAction" :disabled="actionsDisabled['Mettre au lit']">Mettre au lit</button>
+        <button @click="handleAction" :disabled="actionsDisabled['Soigner']">Soigner</button>
     </div>
-    
+
 </template>
 
 
@@ -168,4 +179,9 @@ p {
     transition: 0.3s;
 }
 
+.action button:disabled {
+    cursor: not-allowed;
+    background-color: rgb(104, 78, 78);
+    color: rgb(0, 0, 0);
+}
 </style>
