@@ -12,14 +12,14 @@ Currently on vacation with way too much free time so I'm trying some stuff. The 
 ## Work in progress
 (I know Vue JS is mostly for front-end applications, but I wanted to try some stuff :D)<br>
 - Homepage + about page ✅<br>
+- Page Mascot ✅<br>
+- Page informations ✅<br>
 - Register/login + profile page ✅<br>
-- Manage profile ✅)<br>
+- Manage profile ✅<br>
 - Friends list ✅<br>
-- Page presentation duck<br>
-- Page infos
 
 ## Testing
-Registration with hashing works but if don't feel like signing up for an account<br>
+Registration (with hashing) works but if don't feel like signing up for an account (useless in this website but it works ✨)<br>
 login : louise<br>
 password : test<br>
 
