@@ -10,7 +10,7 @@ let discover = ref(false);
     <div class="intro" v-if="!discover">
         <h1>Avi-quoi ?</h1>
         <img id="jamy" src="/props/jamy.png" alt="jamy">
-        <p id="intro"> Il y a quelques mois, je suis tombée sur un documentaire sur les canards thérapeuthiques. Vous
+        <p id="intro"> Il y a quelques mois, je suis tombée sur un documentaire sur les canards thérapeutiques. Vous
             saviez que 55% des
             personnes interrogées par un sondage en 2022 déclaraient penser souvent à leur santé mentale ? <br>Moi non
             mais
@@ -30,14 +30,15 @@ let discover = ref(false);
             <p>En tant que développeur, on a tous des souvenirs de ces sombres heures de débogage, de schémas sur
                 papier
                 et de reset mental pour reprendre le problème à 0. La méthode du canard, ça vous parle ? Si si, la
-                mthode qui consiste à parler à un canard en lui expliquant notre problème et en espérant que la solution
+                méthode qui consiste à parler à un canard en lui expliquant notre problème et en espérant que la
+                solution
                 nous vienne comme une épiphanie ou que l'incohérence saute finalement aux yeux. La technique en image
                 ci-jointe.</p>
             <img id="duck-dev-img" src="/props/duck-method.jpg" alt="duck-dev">
         </div>
 
         <div class="therapy">
-            <h2>Therapie moins cher que le psy</h2>
+            <h2>Therapie moins chere que le psy</h2>
             <div class="block-duck">
                 <img src="https://www.jsonline.com/gcdn/-mm-/2844b5684d30e1992db34d81dcedf913bb3f93fb/c=0-28-1137-1544/local/-/media/2016/10/25/WIGroup/Milwaukee/636130063253597777-MJS-STINCOL-duck-2.jpg?width=458&height=610&fit=crop&format=pjpg&auto=webp"
                     alt="therapy">
@@ -46,8 +47,8 @@ let discover = ref(false);
                     thérapeutique. Ils sont utilisés pour apporter du réconfort et des bienfaits émotionnels, on les
                     retrouve d'ailleurs souvent dans les hopitaux et les maisons de retraite.</p>
             </div>
-            <p>Pour la petite anecdote, j'ai dit avec assurance dès l'introduction que j'avais vu un documentaire là
-                dessus, et qu'il m'était resté en tête. Pourtant, plus je creuse mes recherches, plus je me dis que
+            <p>Pour la petite anecdote, j'ai dit avec assurance dès l'introduction que j'avais vu un documentaire
+                là-dessus, et qu'il m'était resté en tête. Pourtant, plus je creuse mes recherches, plus je me dis que
                 j'ai
                 tout inventé. Sans vouloir raconter
                 ma vie, j'ai eu de nombreuses expériences de rêves qui semblaient si réalistes que j'étais persuadée
@@ -62,9 +63,9 @@ let discover = ref(false);
                 Vous pourrez lire l'article <a id="article"
                     href="https://www.ouest-france.fr/insolite/daniel-le-canard-therapeute-plumes-video-4581875"
                     target=_blank>ici</a> si la curiosité vous
-                prend. Pour résumer, il parle de Daniel, un thérapeuthe qui a pour but d'aider à gérer le syndrome
+                prend. Pour résumer, il parle de Daniel, un thérapeute qui a pour but d'aider à gérer le syndrome
                 post-traumatique
-                de sa maîtresse Carla, et c'est un canard ! Il a même le droit de prendre l'avion et se ballader
+                de sa maîtresse Carla, et c'est un canard ! Il a même le droit de prendre l'avion et se balader
                 entre les passagers car il est
                 considéré comme "animal de soutien affectif".</p>
         </div>
