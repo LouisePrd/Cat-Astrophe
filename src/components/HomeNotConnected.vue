@@ -81,7 +81,7 @@ const judgingMessage = () => {
         const messages = [
             '<br>Mais pas mal.',
             '<br>Vraiment pas mal.',
-            '<br><br>Passons aux choses sérieuses.<br><a href="/login" style="color: inherit;">Connecte toi</a> ou <a href="/register" style="color: inherit;">inscris toi</a> pour découvrir la suite.'
+            '<br><br>Passons aux choses sérieuses.<br><a href="/connect" style="color: inherit;">Connecte toi</a> ou <a href="/connect" style="color: inherit;">inscris toi</a> pour découvrir la suite.'
         ];
 
         messages.forEach((msg, index) => {
