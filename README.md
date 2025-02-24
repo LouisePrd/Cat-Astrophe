@@ -10,7 +10,7 @@ Currently on vacation with way too much free time so I'm trying some stuff. The 
 </p>
 
 ## Work in progress
-(I know Vue JS is mostly for front-end applications, but I wanted to try some stuff :D)<br>
+(I know Vue JS is mostly for front-end applications, but I wanted to try)<br>
 - Homepage + about page ✅<br>
 - Page Mascot ✅<br>
 - Page informations ✅<br>
